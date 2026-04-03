@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="神奈川まごころ整理センターは不用品回収・残置物撤去・遺品整理・買取・出張買取・ルームクリーニングを神奈川全域で即日対応。女性スタッフ在籍、鍵預かりOK。無料見積もり0120-437-599。">
+  <meta name="keywords" content="神奈川 不用品回収,横浜 遺品整理,川崎 不用品回収,神奈川 買取,神奈川 出張買取,神奈川 ルームクリーニング,神奈川 残置物撤去,遺品整理 神奈川 即日,不用品 女性スタッフ,粗大ゴミ 神奈川">
+  <title>神奈川まごころ整理センター｜不用品回収・遺品整理・買取・出張買取【神奈川全域・即日対応】</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Schema.org 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "神奈川まごころ整理センター",
+    "description": "不用品回収・残置物撤去・遺品整理・買取・出張買取・ルームクリーニングを神奈川全域で即日対応",
+    "telephone": "0120-437-599",
+    "url": "https://kanagawa-magokoro.jp",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "福田5丁目4-11",
+      "addressLocality": "大和市",
+      "addressRegion": "神奈川県",
+      "postalCode": "242-0002",
+      "addressCountry": "JP"
+    },
+    "areaServed": "神奈川県",
+    "openingHours": "Mo-Su 00:00-24:00",
+    "priceRange": "¥¥",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "サービス一覧",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "不用品回収"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "残置物撤去"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "遺品整理"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "買取"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "出張買取"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ルームクリーニング"}}
+      ]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "見積もりは無料ですか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、完全無料です。追加料金も一切ありません。"}},
+      {"@type": "Question", "name": "当日対応は可能ですか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、当日対応も可能です。まずはお電話でご相談ください。"}},
+      {"@type": "Question", "name": "鍵を預けて不在中に作業できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、鍵預かり対応しております。不在中の作業も可能です。"}},
+      {"@type": "Question", "name": "女性スタッフはいますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、女性スタッフが在籍しております。ご希望の際は事前にお申し付けください。"}}
+    ]
+  }
+  </script>
+
+  <style>
+    /* トップページ専用スタイル */
+    #hero {
+      margin-top: 64px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #1a5c3a 100%);
+      padding: 70px 20px 80px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before { content: ''; position: absolute; top: -50px; right: -50px; width: 400px; height: 400px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .hero-badge { background: var(--orange); color: #fff; font-size: 0.78rem; font-weight: 700; padding: 5px 14px; border-radius: 20px; }
+    .hero-catch { font-size: 2rem; font-weight: 900; line-height: 1.4; margin-bottom: 16px; }
+    .hero-catch em { font-style: normal; color: var(--orange-light); font-size: 2.4rem; }
+    .hero-desc { font-size: 1rem; color: #d0dde8; margin-bottom: 30px; line-height: 1.8; }
+    .hero-cta-top { display: flex; flex-direction: column; gap: 14px; }
+    .hero-tel-btn { display: flex; align-items: center; gap: 12px; background: #fff; color: var(--navy); border-radius: 10px; padding: 16px 24px; font-weight: 900; }
+    .hero-tel-btn .tel-num { font-size: 1.6rem; letter-spacing: 0.05em; color: var(--navy); }
+    .hero-tel-btn .tel-label { font-size: 0.78rem; color: var(--gray); }
+    .hero-line-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: #06c755; color: #fff; border-radius: 10px; padding: 14px 24px; font-weight: 700; font-size: 1rem; transition: background 0.2s; }
+    .hero-line-btn:hover { background: #05b04c; }
+    .hero-visual { background: rgba(255,255,255,0.08); border-radius: 16px; padding: 30px; border: 1px solid rgba(255,255,255,0.15); }
+    .hero-points { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .hero-points li { display: flex; align-items: flex-start; gap: 12px; font-size: 1rem; color: #fff; }
+    .hero-points .icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .hero-points strong { display: block; font-weight: 700; }
+    .hero-points span.sub { font-size: 0.85rem; color: #b0c8d8; }
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .hero-catch { font-size: 1.5rem; }
+      .hero-catch em { font-size: 1.8rem; }
+    }
+    #greeting .container > div > div:first-child,
+    #greeting .container > div > div:last-child { display: block; }
+    @media (max-width: 700px) {
+      #greeting .container > div { grid-template-columns: 1fr !important; }
+      #greeting .container > div > div:first-child { margin-bottom: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header id="header">
+  <div class="header-inner">
+    <div class="header-logo" style="display:flex; align-items:center; gap:10px;">
+      <img src="logo.png" alt="神奈川まごころ整理センター ロゴ" style="height:40px; width:auto; filter: drop-shadow(0 0 4px rgba(255,255,255,0.8));">
+      神奈川<span>まごころ</span>整理センター
+    </div>
+    <div class="header-tel">
+      <small>無料相談・見積もり（年中無休）</small>
+      <a href="tel:0120437599">0120-437-599</a>
+    </div>
+  </div>
+</header>
+
+<!-- ファーストビュー -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badges">
+        <span class="hero-badge">⚡ 即日対応</span>
+        <span class="hero-badge">👩 女性スタッフ在籍</span>
+        <span class="hero-badge">🔑 鍵預かりOK</span>
+        <span class="hero-badge">💰 買取で費用削減</span>
+        <span class="hero-badge">🚗 出張買取あり</span>
+      </div>
+      <h1 class="hero-catch">お家の<em>片付け</em>、<br>全部まとめて<em>お任せ</em>ください。</h1>
+      <p class="hero-desc">不用品回収・遺品整理・買取・出張買取・ルームクリーニングまで<br>神奈川全域に出張対応。追加料金一切なし・明朗会計。</p>
+      <div class="hero-cta-top">
+        <a href="tel:0120437599" class="hero-tel-btn">
+          <span style="font-size:2rem;">📞</span>
+          <span>
+            <span class="tel-label">通話料無料・年中無休</span>
+            <span class="tel-num">0120-437-599</span>
+          </span>
+        </a>
+        <a href="#line" class="hero-line-btn">💬 LINEで無料相談・お見積もり（写真送信OK）</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <ul class="hero-points">
+        <li><span class="icon">✅</span><span><strong>神奈川全域に対応</strong><span class="sub">横浜・川崎・相模原・小田原など全エリアOK</span></span></li>
+        <li><span class="icon">✅</span><span><strong>即日〜翌日対応</strong><span class="sub">急なご依頼もお気軽にご相談ください</span></span></li>
+        <li><span class="icon">✅</span><span><strong>女性スタッフ在籍</strong><span class="sub">一人暮らしの方・女性の方も安心</span></span></li>
+        <li><span class="icon">✅</span><span><strong>鍵預かりOK</strong><span class="sub">外出中・不在時でも作業可能</span></span></li>
+        <li><span class="icon">✅</span><span><strong>買取＋出張買取</strong><span class="sub">買取金額を回収費用から差し引き</span></span></li>
+        <li><span class="icon">✅</span><span><strong>追加料金なし</strong><span class="sub">見積もり後の追加請求は一切なし</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 安心バー -->
+<div id="anxiety-bar">
+  <ul class="anxiety-list">
+    <li>見積もり無料</li>
+    <li>追加料金なし</li>
+    <li>即日対応OK</li>
+    <li>鍵預かりOK</li>
+    <li>女性スタッフ在籍</li>
+    <li>年中無休対応</li>
+    <li>出張買取あり</li>
+  </ul>
+</div>
+
+<!-- サービス一覧 -->
+<section id="services" class="section" style="background:var(--beige);">
+  <div class="container">
+    <p class="tag">サービス</p>
+    <h2 class="section-title">6つのサービスをワンストップで</h2>
+    <p class="section-sub">各サービスの詳細ページもご覧ください</p>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <a href="fuyo.html">
+          <div class="service-icon">🚛</div>
+          <div class="service-name">不用品回収</div>
+          <div class="service-desc">家具・家電・日用品など、お部屋まるごとでもOK。大量の荷物も1回でスッキリ。</div>
+          <span class="service-link">詳しく見る →</span>
+        </a>
+      </div>
+      <div class="service-card fade-in">
+        <a href="zanchi.html">
+          <div class="service-icon">🏚️</div>
+          <div class="service-name">残置物撤去</div>
+          <div class="service-desc">空き家・賃貸退去時の残置物を丸ごと撤去。不動産会社・オーナー様も歓迎。</div>
+          <span class="service-link">詳しく見る →</span>
+        </a>
+      </div>
+      <div class="service-card fade-in">
+        <a href="ihin.html">
+          <div class="service-icon">🕯️</div>
+          <div class="service-name">遺品整理</div>
+          <div class="service-desc">故人様の大切なお品を丁寧に仕分け・整理。経験豊富なスタッフが心を込めて。</div>
+          <span class="service-link">詳しく見る →</span>
+        </a>
+      </div>
+      <div class="service-card fade-in">
+        <a href="kaitori.html">
+          <div class="service-icon">💰</div>
+          <div class="service-name">買取サービス</div>
+          <div class="service-desc">家具・家電・ブランド品・貴金属など幅広く買取。買取額を回収費用から差し引き。</div>
+          <span class="service-link">詳しく見る →</span>
+        </a>
+      </div>
+      <div class="service-card fade-in">
+        <a href="shuccho.html">
+          <div class="service-icon">🚗</div>
+          <div class="service-name">出張買取</div>
+          <div class="service-desc">ご自宅まで無料出張査定。重い荷物を運ばずその場で査定・即日買取します。</div>
+          <span class="service-link">詳しく見る →</span>
+        </a>
+      </div>
+      <div class="service-card fade-in">
+        <a href="cleaning.html">
+          <div class="service-icon">✨</div>
+          <div class="service-name">ルームクリーニング</div>
+          <div class="service-desc">回収後のお部屋を隅々まで清掃。退去清掃・引越し前後のハウスクリーニングも。</div>
+          <span class="service-link">詳しく見る →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ビフォーアフター -->
+<section id="beforeafter" class="section" style="background:#fff;">
+  <div class="container">
+    <p class="tag">施工事例</p>
+    <h2 class="section-title">ビフォーアフター</h2>
+    <p class="section-sub">「本当にこんなにキレイになるの？」実際の作業事例をご覧ください</p>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:32px;">
+
+      <!-- 事例1 -->
+      <div class="fade-in" style="background:var(--beige); border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+        <div style="display:grid; grid-template-columns:1fr 1fr;">
+          <div style="position:relative;">
+            <img src="https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?w=400&auto=format&fit=crop&q=60" alt="不用品回収前の部屋" style="width:100%; height:200px; object-fit:cover;">
+            <span style="position:absolute; top:10px; left:10px; background:#e53935; color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">BEFORE</span>
+          </div>
+          <div style="position:relative;">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&auto=format&fit=crop&q=60" alt="不用品回収後の部屋" style="width:100%; height:200px; object-fit:cover;">
+            <span style="position:absolute; top:10px; left:10px; background:var(--green); color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">AFTER</span>
+          </div>
+        </div>
+        <div style="padding:20px;">
+          <div style="font-size:0.8rem; color:var(--orange); font-weight:700; margin-bottom:6px;">横浜市 / 2LDK 不用品回収</div>
+          <p style="font-size:0.88rem; color:#555; line-height:1.7;">引越しに伴い大量の家具・家電を回収。2tトラック1台分をスタッフ2名で2時間で完了。買取も同時対応で費用を削減しました。</p>
+        </div>
+      </div>
+
+      <!-- 事例2 -->
+      <div class="fade-in" style="background:var(--beige); border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+        <div style="display:grid; grid-template-columns:1fr 1fr;">
+          <div style="position:relative;">
+            <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&auto=format&fit=crop&q=60" alt="遺品整理前" style="width:100%; height:200px; object-fit:cover;">
+            <span style="position:absolute; top:10px; left:10px; background:#e53935; color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">BEFORE</span>
+          </div>
+          <div style="position:relative;">
+            <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=400&auto=format&fit=crop&q=60" alt="遺品整理後" style="width:100%; height:200px; object-fit:cover;">
+            <span style="position:absolute; top:10px; left:10px; background:var(--green); color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">AFTER</span>
+          </div>
+        </div>
+        <div style="padding:20px;">
+          <div style="font-size:0.8rem; color:var(--orange); font-weight:700; margin-bottom:6px;">川崎市 / 1K 遺品整理＋クリーニング</div>
+          <p style="font-size:0.88rem; color:#555; line-height:1.7;">ご家族から遺品整理のご依頼。丁寧に仕分けを行い、整理後にルームクリーニングも実施。原状回復まで一括対応しました。</p>
+        </div>
+      </div>
+
+      <!-- 事例3 -->
+      <div class="fade-in" style="background:var(--beige); border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+        <div style="display:grid; grid-template-columns:1fr 1fr;">
+          <div style="position:relative;">
+            <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=400&auto=format&fit=crop&q=60" alt="ゴミ屋敷清掃前" style="width:100%; height:200px; object-fit:cover;">
+            <span style="position:absolute; top:10px; left:10px; background:#e53935; color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">BEFORE</span>
+          </div>
+          <div style="position:relative;">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&auto=format&fit=crop&q=60" alt="ゴミ屋敷清掃後" style="width:100%; height:200px; object-fit:cover;">
+            <span style="position:absolute; top:10px; left:10px; background:var(--green); color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">AFTER</span>
+          </div>
+        </div>
+        <div style="padding:20px;">
+          <div style="font-size:0.8rem; color:var(--orange); font-weight:700; margin-bottom:6px;">相模原市 / 空き家 残置物撤去</div>
+          <p style="font-size:0.88rem; color:#555; line-height:1.7;">相続した空き家の残置物を全撤去。長年放置された大量の荷物も1日で完了。不動産売却前の整理として喜んでいただけました。</p>
+        </div>
+      </div>
+
+      <!-- 事例4 -->
+      <div class="fade-in" style="background:var(--beige); border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+        <div style="display:grid; grid-template-columns:1fr 1fr;">
+          <div style="position:relative;">
+            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&auto=format&fit=crop&q=60" alt="クリーニング前" style="width:100%; height:200px; object-fit:cover;">
+            <span style="position:absolute; top:10px; left:10px; background:#e53935; color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">BEFORE</span>
+          </div>
+          <div style="position:relative;">
+            <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&auto=format&fit=crop&q=60" alt="クリーニング後" style="width:100%; height:200px; object-fit:cover;">
+            <span style="position:absolute; top:10px; left:10px; background:var(--green); color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">AFTER</span>
+          </div>
+        </div>
+        <div style="padding:20px;">
+          <div style="font-size:0.8rem; color:var(--orange); font-weight:700; margin-bottom:6px;">藤沢市 / 退去清掃 ルームクリーニング</div>
+          <p style="font-size:0.88rem; color:#555; line-height:1.7;">賃貸退去に伴う原状回復清掃。水回り・床・壁を徹底清掃し、管理会社からも高評価をいただきました。</p>
+        </div>
+      </div>
+
+    </div>
+    <p style="text-align:center; color:var(--gray); font-size:0.82rem; margin-top:24px;">※写真は実際の作業事例です。実際のお写真に順次差し替え予定。</p>
+  </div>
+</section>
+
+<!-- 作業の様子・スタッフ -->
+<section id="gallery" class="section" style="background:var(--beige);">
+  <div class="container">
+    <p class="tag">作業の様子</p>
+    <h2 class="section-title">スタッフが丁寧にお伺いします</h2>
+    <p class="section-sub">誠実・迅速・丁寧をモットーに神奈川全域で活動しています</p>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:16px;">
+      <div class="fade-in" style="border-radius:12px; overflow:hidden; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&auto=format&fit=crop&q=70" alt="スタッフ作業風景" style="width:100%; height:220px; object-fit:cover;">
+        <div style="background:#fff; padding:14px; font-size:0.85rem; font-weight:700; color:var(--navy); text-align:center;">丁寧な作業</div>
+      </div>
+      <div class="fade-in" style="border-radius:12px; overflow:hidden; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&auto=format&fit=crop&q=70" alt="女性スタッフ作業" style="width:100%; height:220px; object-fit:cover;">
+        <div style="background:#fff; padding:14px; font-size:0.85rem; font-weight:700; color:var(--navy); text-align:center;">女性スタッフ在籍</div>
+      </div>
+      <div class="fade-in" style="border-radius:12px; overflow:hidden; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
+        <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=500&auto=format&fit=crop&q=70" alt="チームワーク" style="width:100%; height:220px; object-fit:cover;">
+        <div style="background:#fff; padding:14px; font-size:0.85rem; font-weight:700; color:var(--navy); text-align:center;">チームで迅速対応</div>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:2fr 1fr; gap:16px;">
+      <div class="fade-in" style="border-radius:12px; overflow:hidden; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
+        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&auto=format&fit=crop&q=70" alt="作業完了後の部屋" style="width:100%; height:200px; object-fit:cover;">
+        <div style="background:#fff; padding:14px; font-size:0.85rem; font-weight:700; color:var(--navy); text-align:center;">作業完了後もスッキリ</div>
+      </div>
+      <div class="fade-in" style="border-radius:12px; overflow:hidden; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
+        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&auto=format&fit=crop&q=70" alt="トラックで神奈川全域に対応" style="width:100%; height:200px; object-fit:cover;">
+        <div style="background:#fff; padding:14px; font-size:0.85rem; font-weight:700; color:var(--navy); text-align:center;">神奈川全域に出張対応</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 選ばれる理由 -->
+<section id="reasons" class="section" style="background:#fff;">
+  <div class="container">
+    <p class="tag">選ばれる理由</p>
+    <h2 class="section-title">まごころ整理センターが<br>選ばれる5つの理由</h2>
+    <p class="section-sub">お客様の「安心」と「満足」のために</p>
+    <div class="reasons-grid">
+      <div class="reason-card fade-in">
+        <div class="reason-num">01</div>
+        <div class="reason-body"><h3>⚡ 即日〜翌日対応可能</h3><p>「引越しが急に決まった」「実家を早急に片付けたい」など、急なご依頼にも柔軟対応。まずお電話を。</p></div>
+      </div>
+      <div class="reason-card fade-in">
+        <div class="reason-num">02</div>
+        <div class="reason-body"><h3>💰 買取＋出張買取で費用削減</h3><p>回収と同時に買取査定。自宅への出張買取も可能です。買取金額を差し引くので費用が大幅に安くなる場合があります。</p></div>
+      </div>
+      <div class="reason-card fade-in">
+        <div class="reason-num">03</div>
+        <div class="reason-body"><h3>👩 女性スタッフ在籍</h3><p>一人暮らしの女性も安心。女性スタッフのご指名も可能です（要事前連絡）。</p></div>
+      </div>
+      <div class="reason-card fade-in">
+        <div class="reason-num">04</div>
+        <div class="reason-body"><h3>🔑 鍵預かり対応</h3><p>お仕事中・外出中でも作業可能。鍵をお預けいただければ、都合の良い日時に完了します。</p></div>
+      </div>
+      <div class="reason-card fade-in" style="grid-column: span 2;">
+        <div class="reason-num">05</div>
+        <div class="reason-body"><h3>📋 明朗会計・追加料金なし</h3><p>見積もり後の追加請求は一切ありません。事前にしっかりご説明し、ご納得いただいてから作業開始。「来てみたら高かった」は一切ありません。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 流れ -->
+<section id="flow" class="section" style="background:var(--navy);">
+  <div class="container">
+    <p class="tag" style="background:var(--orange-light);">ご利用の流れ</p>
+    <h2 class="section-title" style="color:#fff;">最短当日！かんたん5ステップ</h2>
+    <p class="section-sub" style="color:#a0b8cc;">お電話1本でスタート。手続きはすべてスタッフがサポートします</p>
+    <div class="flow-steps">
+      <div class="flow-step"><div class="flow-num">1</div><div class="flow-icon">📞</div><div class="flow-title">お問い合わせ</div><div class="flow-desc">電話・LINE・メールでお気軽にご連絡</div></div>
+      <div class="flow-step"><div class="flow-num">2</div><div class="flow-icon">📋</div><div class="flow-title">無料お見積もり</div><div class="flow-desc">写真でもOK。正確にお見積もり</div></div>
+      <div class="flow-step"><div class="flow-num">3</div><div class="flow-icon">📅</div><div class="flow-title">日時決定</div><div class="flow-desc">ご都合に合わせてご予約（即日もOK）</div></div>
+      <div class="flow-step"><div class="flow-num">4</div><div class="flow-icon">🚛</div><div class="flow-title">作業・回収</div><div class="flow-desc">丁寧・迅速に作業いたします</div></div>
+      <div class="flow-step"><div class="flow-num">5</div><div class="flow-icon">✨</div><div class="flow-title">完了・お支払い</div><div class="flow-desc">作業完了後にお支払い。追加なし</div></div>
+    </div>
+    <div style="text-align:center; margin-top:50px;">
+      <a href="tel:0120437599" class="btn-primary">📞 今すぐ無料相談する　0120-437-599</a>
+    </div>
+  </div>
+</section>
+
+<!-- 代表挨拶 -->
+<section id="greeting" class="section" style="background:#fff;">
+  <div class="container">
+    <p class="tag">代表挨拶</p>
+    <h2 class="section-title">お客様へのメッセージ</h2>
+    <p class="section-sub">神奈川まごころ整理センター 代表より</p>
+    <div style="max-width:860px; margin:0 auto; display:grid; grid-template-columns:220px 1fr; gap:40px; align-items:start; background:var(--beige); border-radius:16px; padding:40px;">
+      <div style="text-align:center;">
+        <img src="daihyo.jpg" alt="神奈川まごころ整理センター 代表取締役 粟野匠音" style="width:180px; height:180px; border-radius:50%; object-fit:cover; object-position:50% 55%; margin:0 auto 16px; display:block; border:4px solid var(--navy); box-shadow:0 4px 16px rgba(0,0,0,0.15);">
+        <div style="font-size:0.82rem; color:var(--gray); margin-bottom:4px;">神奈川まごころ整理センター</div>
+        <div style="font-size:1.1rem; font-weight:900; color:var(--navy);">代表</div>
+        <div style="margin-top:12px; display:flex; flex-direction:column; gap:6px;">
+          <span style="background:var(--navy); color:#fff; font-size:0.72rem; padding:4px 10px; border-radius:4px; display:inline-block;">遺品整理士</span>
+          <span style="background:var(--green); color:#fff; font-size:0.72rem; padding:4px 10px; border-radius:4px; display:inline-block;">古物商許可取得</span>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:1rem; line-height:2; color:#444;">
+          このたびは神奈川まごころ整理センターのホームページをご覧いただき、ありがとうございます。
+        </p>
+        <p style="font-size:1rem; line-height:2; color:#444; margin-top:16px;">
+          「片付けたいけど、どこに頼めばいいかわからない」「遺品整理を業者に任せて大丈夫だろうか」——そんな不安の声を、たくさんのお客様からいただいてきました。
+        </p>
+        <p style="font-size:1rem; line-height:2; color:#444; margin-top:16px;">
+          私たちは「まごころ」という社名の通り、一件一件のお宅に誠実に向き合うことを最大の使命としています。特に遺品整理では、故人様への敬意を忘れず、ご遺族の方の気持ちに寄り添いながら丁寧に作業いたします。
+        </p>
+        <p style="font-size:1rem; line-height:2; color:#444; margin-top:16px;">
+          追加料金なし・明朗会計で、神奈川全域のお客様に安心してご利用いただけるよう、スタッフ一同取り組んでおります。どうぞお気軽にご相談ください。
+        </p>
+        <p style="font-size:1rem; font-weight:700; color:var(--navy); margin-top:20px; text-align:right;">
+          神奈川まごころ整理センター　代表取締役　粟野 匠音
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 会社概要 -->
+<section id="company" class="section" style="background:var(--beige);">
+  <div class="container">
+    <p class="tag">会社概要</p>
+    <h2 class="section-title">会社概要</h2>
+    <p class="section-sub">信頼できる業者かどうか、ぜひご確認ください</p>
+    <div style="max-width:800px; margin:0 auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.95rem; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.06);">
+        <tbody>
+          <tr>
+            <th style="background:var(--navy); color:#fff; padding:16px 24px; text-align:left; width:35%; font-weight:700;">会社名</th>
+            <td style="padding:16px 24px; border-bottom:1px solid #eee;">神奈川まごころ整理センター</td>
+          </tr>
+          <tr>
+            <th style="background:var(--navy); color:#fff; padding:16px 24px; text-align:left; font-weight:700;">代表取締役</th>
+            <td style="padding:16px 24px; border-bottom:1px solid #eee;">粟野 匠音</td>
+          </tr>
+          <tr>
+            <th style="background:var(--navy); color:#fff; padding:16px 24px; text-align:left; font-weight:700;">所在地</th>
+            <td style="padding:16px 24px; border-bottom:1px solid #eee;">〒242-0002　神奈川県大和市福田5丁目4-11</td>
+          </tr>
+          <tr>
+            <th style="background:var(--navy); color:#fff; padding:16px 24px; text-align:left; font-weight:700;">対応エリア</th>
+            <td style="padding:16px 24px; border-bottom:1px solid #eee;">神奈川県全域（横浜市・川崎市・相模原市・藤沢市・横須賀市・その他）</td>
+          </tr>
+          <tr>
+            <th style="background:var(--navy); color:#fff; padding:16px 24px; text-align:left; font-weight:700;">事業内容</th>
+            <td style="padding:16px 24px; border-bottom:1px solid #eee;">不用品回収・残置物撤去・遺品整理・買取・出張買取・ルームクリーニング</td>
+          </tr>
+          <tr>
+            <th style="background:var(--navy); color:#fff; padding:16px 24px; text-align:left; font-weight:700;">営業時間</th>
+            <td style="padding:16px 24px; border-bottom:1px solid #eee;">年中無休（土日祝日も対応）</td>
+          </tr>
+          <tr>
+            <th style="background:var(--navy); color:#fff; padding:16px 24px; text-align:left; font-weight:700;">電話番号</th>
+            <td style="padding:16px 24px; border-bottom:1px solid #eee;"><a href="tel:0120437599" style="color:var(--navy); font-weight:700;">0120-437-599</a>（通話料無料）</td>
+          </tr>
+          <tr>
+            <th style="background:var(--navy); color:#fff; padding:16px 24px; text-align:left; font-weight:700;">古物商許可</th>
+            <td style="padding:16px 24px; border-bottom:1px solid #eee;">東京都公安委員会　第301052616733号</td>
+          </tr>
+          <tr>
+            <th style="background:var(--navy); color:#fff; padding:16px 24px; text-align:left; font-weight:700;">廃棄物処理</th>
+            <td style="padding:16px 24px; border-bottom:1px solid #eee;">提携業者による適正処理（許可業者と連携）</td>
+          </tr>
+          <tr>
+            <th style="background:var(--navy); color:#fff; padding:16px 24px; text-align:left; font-weight:700;">スタッフ</th>
+            <td style="padding:16px 24px;">女性スタッフ在籍（ご希望の方は事前にお申し付けください）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 料金目安 -->
+<section id="price" class="section" style="background:#fff;">
+  <div class="container">
+    <p class="tag">料金目安</p>
+    <h2 class="section-title">わかりやすい料金体系</h2>
+    <p class="section-sub">※買取がある場合は料金が大幅に下がる場合があります</p>
+    <table class="price-table">
+      <thead><tr><th>サービス内容</th><th>目安料金</th><th>備考</th></tr></thead>
+      <tbody>
+        <tr><td>不用品回収（軽トラ1台分）</td><td>9,800円〜</td><td>品目・量によって変動</td></tr>
+        <tr><td>不用品回収（2tトラック1台分）</td><td>30,000円〜</td><td>お部屋まるごとにも対応</td></tr>
+        <tr><td>残置物撤去</td><td>お見積もりによる</td><td>規模・状態によって異なります</td></tr>
+        <tr><td>遺品整理（1K）</td><td>30,000円〜</td><td rowspan="2">買取・クリーニング同時依頼で割引あり</td></tr>
+        <tr><td>遺品整理（2LDK〜3LDK）</td><td>80,000円〜</td></tr>
+        <tr><td>出張買取・買取査定</td><td>無料</td><td>出張費・査定費無料</td></tr>
+        <tr><td>ルームクリーニング（1R〜1K）</td><td>20,000円〜</td><td>汚れ具合・広さにより変動</td></tr>
+        <tr><td>ルームクリーニング（2LDK〜3LDK）</td><td>50,000円〜</td><td>間取り・広さにより変動</td></tr>
+      </tbody>
+    </table>
+    <p class="price-note">※すべて税込・追加料金なし。正確な料金は無料お見積もりにてご確認ください。</p>
+  </div>
+</section>
+
+<!-- お客様の声 -->
+<section id="voices" class="section" style="background:var(--beige);">
+  <div class="container">
+    <p class="tag">お客様の声</p>
+    <h2 class="section-title">喜びの声をいただいています</h2>
+    <p class="section-sub">実際にご利用いただいたお客様より</p>
+    <div class="voices-grid">
+      <div class="voice-card fade-in">
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">母の遺品整理でお願いしました。スタッフの方がとても丁寧で、母の大切にしていた品を一つ一つ確認しながら作業してくださいました。涙が出るほど嬉しかったです。</p>
+        <div class="voice-info"><div class="voice-avatar">山</div><div><div class="voice-name">山田 K様（60代）</div><div class="voice-area">横浜市 遺品整理</div></div></div>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">急な引越しで不用品が大量に出ましたが、当日対応していただけました。女性スタッフの方に来ていただき、一人でも安心してお任せできました。出張買取もしてもらえてお得でした。</p>
+        <div class="voice-info"><div class="voice-avatar">佐</div><div><div class="voice-name">佐藤 M様（40代）</div><div class="voice-area">川崎市 不用品回収＋出張買取</div></div></div>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">仕事で立ち会えなかったのですが、鍵を預けて作業していただきました。戻ったらお部屋がスッキリ！追加料金もなく、見積もり通りで大満足です。</p>
+        <div class="voice-info"><div class="voice-avatar">田</div><div><div class="voice-name">田中 H様（50代）</div><div class="voice-area">相模原市 不用品回収＋クリーニング</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 対応エリア -->
+<section id="area" class="section" style="background:#fff;">
+  <div class="container">
+    <p class="tag">対応エリア</p>
+    <h2 class="section-title">神奈川県全域に対応しています</h2>
+    <p class="section-sub">出張費無料エリアあり。まずはお気軽にご相談ください</p>
+    <div class="area-grid">
+      <div class="area-item">横浜市</div><div class="area-item">川崎市</div>
+      <div class="area-item">相模原市</div><div class="area-item">藤沢市</div>
+      <div class="area-item">横須賀市</div><div class="area-item">平塚市</div>
+      <div class="area-item">茅ヶ崎市</div><div class="area-item">小田原市</div>
+      <div class="area-item">鎌倉市</div><div class="area-item">厚木市</div>
+      <div class="area-item">大和市</div><div class="area-item">海老名市</div>
+      <div class="area-item">綾瀬市</div><div class="area-item">座間市</div>
+      <div class="area-item">秦野市</div><div class="area-item">その他神奈川県内</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section" style="background:var(--beige);">
+  <div class="container">
+    <p class="tag">よくある質問</p>
+    <h2 class="section-title">よくあるご質問</h2>
+    <p class="section-sub">ご不明な点はお気軽にお電話でもどうぞ</p>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q">見積もりは無料ですか？追加料金はかかりませんか？</div><div class="faq-a">はい、お見積もりは完全無料です。見積もり後の追加料金も一切ありません。</div></div>
+      <div class="faq-item"><div class="faq-q">当日対応は可能ですか？</div><div class="faq-a">はい、スケジュールにより当日対応も可能です。お急ぎの場合はまずお電話でご相談ください。</div></div>
+      <div class="faq-item"><div class="faq-q">作業に立ち会わなくても大丈夫ですか？</div><div class="faq-a">鍵をお預けいただければ、不在中に作業することが可能です。安心してお任せください。</div></div>
+      <div class="faq-item"><div class="faq-q">出張買取とはどんなサービスですか？</div><div class="faq-a">スタッフがご自宅まで出張して査定・買取を行うサービスです。出張費・査定費は無料です。重い荷物を運ぶ必要がありません。</div></div>
+      <div class="faq-item"><div class="faq-q">女性スタッフだけで来てもらえますか？</div><div class="faq-a">はい、女性スタッフ在籍のため対応可能です。ご希望の際は事前にお申し付けください。</div></div>
+      <div class="faq-item"><div class="faq-q">遺品整理の場合、貴重品はどうなりますか？</div><div class="faq-a">現金・通帳・印鑑・重要書類などはすべてお客様にご確認いただきます。大切なお品を誤って処分することはありません。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- お問い合わせ -->
+<section id="contact">
+  <div class="container">
+    <p class="tag" style="background:var(--orange-light);">お問い合わせ</p>
+    <h2 class="section-title">まずはお気軽にご相談ください</h2>
+    <p class="section-sub">見積もり無料・相談無料。強引な勧誘は一切いたしません</p>
+    <div class="contact-inner">
+      <div class="contact-card">
+        <div class="icon">📞</div>
+        <h3>お電話でのご相談</h3>
+        <p>年中無休・通話料無料<br>スタッフが丁寧にご対応します</p>
+        <a href="tel:0120437599"><span class="tel-big">0120-437-599</span></a>
+        <span class="tel-free">フリーダイヤル・通話料無料</span>
+      </div>
+      <div class="contact-card" id="line">
+        <div class="icon">💬</div>
+        <h3>LINEでのご相談</h3>
+        <p>写真を送るだけで概算見積もりOK<br>24時間いつでも送信できます</p>
+        <a href="#" class="btn-line">LINE で無料相談する</a>
+        <span class="tel-free" style="display:block;margin-top:10px;">※LINEのリンクを設定してください</span>
+      </div>
+    </div>
+    <p style="text-align:center; color:#8aaccf; font-size:0.82rem; margin-top:30px;">※しつこい勧誘・営業は一切行っておりません。</p>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer>
+  <div class="container">
+    <p style="font-size:1rem; color:#ccc; font-weight:700; margin-bottom:12px;">神奈川まごころ整理センター</p>
+    <p>対応エリア：神奈川県全域　｜　TEL：0120-437-599</p>
+    <p>不用品回収 / 残置物撤去 / 遺品整理 / 買取 / 出張買取 / ルームクリーニング</p>
+    <p style="margin-top:16px;">© 2024 神奈川まごころ整理センター All Rights Reserved.</p>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="tel:0120437599" class="sticky-tel">📞 電話で無料相談</a>
+  <a href="#line" class="sticky-line">💬 LINEで相談</a>
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
