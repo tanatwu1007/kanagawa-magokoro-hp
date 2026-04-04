@@ -14,9 +14,10 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "神奈川まごころ整理センター",
+    "image": "https://kanagawa-magokoro-hp.vercel.app/logo.png",
     "description": "不用品回収・残置物撤去・遺品整理・買取・出張買取・ルームクリーニングを神奈川全域で即日対応",
     "telephone": "0120-437-599",
-    "url": "https://kanagawa-magokoro.jp",
+    "url": "https://kanagawa-magokoro-hp.vercel.app",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "福田5丁目4-11",
@@ -25,19 +26,23 @@
       "postalCode": "242-0002",
       "addressCountry": "JP"
     },
-    "areaServed": "神奈川県",
-    "openingHours": "Mo-Su 00:00-24:00",
-    "priceRange": "¥¥",
+    "areaServed": {"@type": "State", "name": "神奈川県"},
+    "openingHours": "Mo-Su 08:00-20:00",
+    "priceRange": "¥9,800〜",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "127"
+    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "サービス一覧",
       "itemListElement": [
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "不用品回収"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "残置物撤去"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "遺品整理"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "買取"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "出張買取"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ルームクリーニング"}}
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "不用品回収", "url": "https://kanagawa-magokoro-hp.vercel.app/fuyo.html"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "残置物撤去", "url": "https://kanagawa-magokoro-hp.vercel.app/zanchi.html"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "遺品整理", "url": "https://kanagawa-magokoro-hp.vercel.app/ihin.html"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "買取・出張買取", "url": "https://kanagawa-magokoro-hp.vercel.app/kaitori.html"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ルームクリーニング", "url": "https://kanagawa-magokoro-hp.vercel.app/cleaning.html"}}
       ]
     }
   }
@@ -47,10 +52,26 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type": "Question", "name": "見積もりは無料ですか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、完全無料です。追加料金も一切ありません。"}},
-      {"@type": "Question", "name": "当日対応は可能ですか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、当日対応も可能です。まずはお電話でご相談ください。"}},
-      {"@type": "Question", "name": "鍵を預けて不在中に作業できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、鍵預かり対応しております。不在中の作業も可能です。"}},
-      {"@type": "Question", "name": "女性スタッフはいますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、女性スタッフが在籍しております。ご希望の際は事前にお申し付けください。"}}
+      {"@type": "Question", "name": "見積もりは無料ですか？追加料金はかかりませんか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、お見積もりは完全無料です。見積もり後の追加料金も一切ありません。"}},
+      {"@type": "Question", "name": "当日対応は可能ですか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、スケジュールにより当日対応も可能です。お急ぎの場合はまずお電話でご相談ください。"}},
+      {"@type": "Question", "name": "作業に立ち会わなくても大丈夫ですか？", "acceptedAnswer": {"@type": "Answer", "text": "鍵をお預けいただければ、不在中に作業することが可能です。安心してお任せください。"}},
+      {"@type": "Question", "name": "女性スタッフだけで来てもらえますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、女性スタッフ在籍のため対応可能です。ご希望の際は事前にお申し付けください。"}},
+      {"@type": "Question", "name": "不用品回収の料金相場はどれくらいですか？", "acceptedAnswer": {"@type": "Answer", "text": "軽トラック1台分で9,800円〜、2tトラック1台分で30,000円〜が目安です。品目・量・作業内容によって変動します。買取と同時依頼で費用が大幅に下がる場合があります。"}},
+      {"@type": "Question", "name": "クレジットカードや電子マネーは使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "現金・振込のほか、各種キャッシュレス決済にも対応しております。詳しくはお問い合わせ時にご確認ください。"}},
+      {"@type": "Question", "name": "キャンセル料はかかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "作業前のキャンセルは原則無料です。ただし作業開始後のキャンセルは一部費用が発生する場合があります。"}},
+      {"@type": "Question", "name": "作業時間はどれくらいかかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "1Kのお部屋で1〜3時間、2LDKで3〜5時間が目安です。荷物の量や内容によって異なります。"}},
+      {"@type": "Question", "name": "2階以上でもエレベーターなしでも対応できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、対応可能です。階段作業の場合は別途費用が発生することがあります。事前にお知らせください。"}},
+      {"@type": "Question", "name": "ゴミ屋敷の片付けも依頼できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、ゴミ屋敷・汚部屋の清掃も対応しております。どんな状態でもお気軽にご相談ください。"}},
+      {"@type": "Question", "name": "1点だけでも回収してもらえますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、1点からでも対応可能です。まずはお気軽にご相談ください。"}},
+      {"@type": "Question", "name": "遺品整理はいつ頃始めるのがいいですか？", "acceptedAnswer": {"@type": "Answer", "text": "四十九日法要後が一般的ですが、相続手続きや物件退去の期限に合わせて柔軟に対応いたします。"}},
+      {"@type": "Question", "name": "遺品整理の場合、貴重品はどうなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "現金・通帳・印鑑・重要書類などはすべてお客様にご確認いただきます。大切なお品を誤って処分することはありません。"}},
+      {"@type": "Question", "name": "どんなものが買取対象になりますか？", "acceptedAnswer": {"@type": "Answer", "text": "家具・家電・ブランド品・貴金属・骨董品・楽器・カメラ・ゲームなど幅広く対応。壊れていても査定いたします。"}},
+      {"@type": "Question", "name": "買取だけの依頼も可能ですか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、出張買取のみのご依頼も承ります。出張費・査定費は無料です。"}},
+      {"@type": "Question", "name": "近隣への配慮はしてもらえますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、作業前にご近所への挨拶、静かな作業、トラックの適切な駐車など配慮しております。"}},
+      {"@type": "Question", "name": "回収した不用品はどのように処分されますか？", "acceptedAnswer": {"@type": "Answer", "text": "リサイクル可能なものは買取・再販、それ以外は許可業者と連携して適正処理しております。不法投棄は一切行いません。"}},
+      {"@type": "Question", "name": "法人・不動産会社からの依頼も受けていますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、不動産会社・管理会社・法人のお客様からのご依頼も歓迎いたします。まとめてご相談ください。"}},
+      {"@type": "Question", "name": "雨の日でも作業してもらえますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、基本的には天候に関わらず対応いたします。ただし状況によっては日程調整をお願いする場合があります。"}},
+      {"@type": "Question", "name": "出張買取とはどんなサービスですか？", "acceptedAnswer": {"@type": "Answer", "text": "スタッフがご自宅まで出張して査定・買取を行うサービスです。出張費・査定費は無料。重い荷物を運ぶ必要がありません。"}}
     ]
   }
   </script>
@@ -58,7 +79,7 @@
   <style>
     /* トップページ専用スタイル */
     #hero {
-      margin-top: 64px;
+      margin-top: 108px;
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #1a5c3a 100%);
       padding: 70px 20px 80px;
       color: #fff;
@@ -153,8 +174,70 @@
       <small>無料相談・見積もり（年中無休）</small>
       <a href="tel:0120437599">0120-437-599</a>
     </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="メニューを開く" onclick="toggleMobileMenu()">☰</button>
   </div>
 </header>
+
+<!-- グローバルナビ（デスクトップ） -->
+<nav id="main-nav" aria-label="グローバルナビゲーション">
+  <div class="main-nav-inner">
+    <ul class="nav-list">
+      <li class="has-dropdown">
+        <a href="#">サービス ▾</a>
+        <ul class="nav-dropdown">
+          <li><a href="fuyo.html">🚛 不用品回収</a></li>
+          <li><a href="ihin.html">🕯️ 遺品整理</a></li>
+          <li><a href="zanchi.html">🏚️ 残置物撤去</a></li>
+          <li><a href="kaitori.html">💰 買取サービス</a></li>
+          <li><a href="shuccho.html">🚗 出張買取</a></li>
+          <li><a href="cleaning.html">✨ ルームクリーニング</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">対応エリア ▾</a>
+        <ul class="nav-dropdown">
+          <li><a href="area/yokohama.html">横浜市</a></li>
+          <li><a href="area/kawasaki.html">川崎市</a></li>
+          <li><a href="area/sagamihara.html">相模原市</a></li>
+          <li><a href="area/yamato.html">大和市</a></li>
+          <li><a href="area/fujisawa.html">藤沢市</a></li>
+          <li><a href="area/yokosuka.html">横須賀市</a></li>
+        </ul>
+      </li>
+      <li><a href="#price">料金目安</a></li>
+      <li><a href="blog/index.html">ブログ</a></li>
+      <li><a href="#company">会社概要</a></li>
+      <li><a href="#faq">よくある質問</a></li>
+      <li><a href="#contact" class="nav-cta-btn">無料相談</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- モバイルメニュー -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+  <div class="mobile-menu-panel">
+    <div class="mm-section">サービス</div>
+    <a href="fuyo.html">🚛 不用品回収</a>
+    <a href="ihin.html">🕯️ 遺品整理</a>
+    <a href="zanchi.html">🏚️ 残置物撤去</a>
+    <a href="kaitori.html">💰 買取サービス</a>
+    <a href="shuccho.html">🚗 出張買取</a>
+    <a href="cleaning.html">✨ ルームクリーニング</a>
+    <div class="mm-section">対応エリア</div>
+    <a href="area/yokohama.html">📍 横浜市</a>
+    <a href="area/kawasaki.html">📍 川崎市</a>
+    <a href="area/sagamihara.html">📍 相模原市</a>
+    <a href="area/yamato.html">📍 大和市</a>
+    <a href="area/fujisawa.html">📍 藤沢市</a>
+    <a href="area/yokosuka.html">📍 横須賀市</a>
+    <div class="mm-section">その他</div>
+    <a href="blog/index.html">📝 ブログ・お役立ち情報</a>
+    <a href="#company" onclick="toggleMobileMenu()">🏢 会社概要</a>
+    <a href="#faq" onclick="toggleMobileMenu()">❓ よくある質問</a>
+    <a href="tel:0120437599" class="mm-cta-tel">📞 0120-437-599（無料通話）</a>
+    <a href="https://lin.ee/Gf8Or5r" class="mm-cta-line" target="_blank" rel="noopener">💬 LINEで無料相談</a>
+  </div>
+</div>
 
 <!-- ファーストビュー -->
 <section id="hero">
@@ -167,8 +250,8 @@
         <span class="hero-badge">💰 買取で費用削減</span>
         <span class="hero-badge">🚗 出張買取あり</span>
       </div>
-      <h1 class="hero-catch">お家の<em>片付け</em>、<br>全部まとめて<em>お任せ</em>ください。</h1>
-      <p class="hero-desc">不用品回収・遺品整理・買取・出張買取・ルームクリーニングまで<br>神奈川全域に出張対応。追加料金一切なし・明朗会計。</p>
+      <h1 class="hero-catch">神奈川の<em>不用品回収</em>・<em>遺品整理</em>なら<br>まごころ整理センター</h1>
+      <p class="hero-desc">追加料金なし・最短即日対応・買取で費用削減<br>神奈川全域1,200件以上の実績。見積もり後の追加請求は一切ありません。</p>
       <div class="hero-cta-top">
         <a href="tel:0120437599" class="hero-tel-btn">
           <span style="font-size:2rem;">📞</span>
@@ -178,6 +261,7 @@
           </span>
         </a>
         <a href="https://lin.ee/Gf8Or5r" class="hero-line-btn" target="_blank" rel="noopener">💬 LINEで無料相談・お見積もり（写真送信OK）</a>
+        <p style="font-size:0.78rem; color:rgba(255,255,255,0.6); text-align:center; margin-top:-4px;">※しつこい勧誘・営業は一切行っておりません</p>
       </div>
     </div>
     <div class="hero-visual">
@@ -213,6 +297,21 @@
         <div class="ach-num">当日<span>〜</span></div>
         <div class="ach-label">最短即日対応</div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- 信頼バッジ -->
+<div id="trust-badges">
+  <div class="container">
+    <div class="trust-badges-grid">
+      <div class="trust-badge"><span class="tb-icon">🎓</span>遺品整理士 在籍</div>
+      <div class="trust-badge green"><span class="tb-icon">📋</span>古物商許可 取得済</div>
+      <div class="trust-badge orange"><span class="tb-icon">🔒</span>秘密厳守・個人情報保護</div>
+      <div class="trust-badge"><span class="tb-icon">♻️</span>廃棄物 適正処理</div>
+      <div class="trust-badge green"><span class="tb-icon">⚡</span>年中無休・即日対応</div>
+      <!-- 損害賠償保険加入の場合は以下を有効化してください -->
+      <!-- <div class="trust-badge orange"><span class="tb-icon">🛡️</span>損害賠償保険加入</div> -->
     </div>
   </div>
 </div>
@@ -654,12 +753,32 @@
     <h2 class="section-title">よくあるご質問</h2>
     <p class="section-sub">ご不明な点はお気軽にお電話でもどうぞ</p>
     <div class="faq-list">
-      <div class="faq-item"><div class="faq-q">見積もりは無料ですか？追加料金はかかりませんか？</div><div class="faq-a">はい、お見積もりは完全無料です。見積もり後の追加料金も一切ありません。</div></div>
+      <p class="tag" style="margin-bottom:20px;">料金・費用</p>
+      <div class="faq-item"><div class="faq-q">見積もりは無料ですか？追加料金はかかりませんか？</div><div class="faq-a">はい、お見積もりは完全無料です。見積もり後の追加料金も一切ありません。「来てみたら高かった」は絶対にありません。</div></div>
+      <div class="faq-item"><div class="faq-q">不用品回収の料金相場はどれくらいですか？</div><div class="faq-a">軽トラック1台分で9,800円〜、2tトラック1台分で30,000円〜が目安です。買取と同時依頼で費用が大幅に下がる場合があります。正確な金額は無料お見積もりでご確認ください。</div></div>
+      <div class="faq-item"><div class="faq-q">クレジットカードや電子マネーは使えますか？</div><div class="faq-a">現金・振込のほか、各種キャッシュレス決済にも対応しております。お問い合わせ時にご確認ください。</div></div>
+      <div class="faq-item"><div class="faq-q">キャンセル料はかかりますか？</div><div class="faq-a">作業前のキャンセルは原則無料です。ただし作業開始後のキャンセルは一部費用が発生する場合があります。</div></div>
+
+      <p class="tag" style="margin-bottom:20px; margin-top:28px;">作業・対応</p>
       <div class="faq-item"><div class="faq-q">当日対応は可能ですか？</div><div class="faq-a">はい、スケジュールにより当日対応も可能です。お急ぎの場合はまずお電話でご相談ください。</div></div>
-      <div class="faq-item"><div class="faq-q">作業に立ち会わなくても大丈夫ですか？</div><div class="faq-a">鍵をお預けいただければ、不在中に作業することが可能です。安心してお任せください。</div></div>
-      <div class="faq-item"><div class="faq-q">出張買取とはどんなサービスですか？</div><div class="faq-a">スタッフがご自宅まで出張して査定・買取を行うサービスです。出張費・査定費は無料です。重い荷物を運ぶ必要がありません。</div></div>
-      <div class="faq-item"><div class="faq-q">女性スタッフだけで来てもらえますか？</div><div class="faq-a">はい、女性スタッフ在籍のため対応可能です。ご希望の際は事前にお申し付けください。</div></div>
+      <div class="faq-item"><div class="faq-q">作業に立ち会わなくても大丈夫ですか？</div><div class="faq-a">鍵をお預けいただければ、不在中に作業することが可能です。作業完了後にご連絡いたします。安心してお任せください。</div></div>
+      <div class="faq-item"><div class="faq-q">作業時間はどれくらいかかりますか？</div><div class="faq-a">1Kのお部屋で1〜3時間、2LDKで3〜5時間が目安です。荷物の量・内容によって異なります。</div></div>
+      <div class="faq-item"><div class="faq-q">2階以上・エレベーターなしでも対応できますか？</div><div class="faq-a">はい、対応可能です。階段作業の場合は別途費用が発生することがあります。事前にお知らせいただけるとスムーズです。</div></div>
+      <div class="faq-item"><div class="faq-q">ゴミ屋敷・汚部屋の片付けも依頼できますか？</div><div class="faq-a">はい、ゴミ屋敷・汚部屋の清掃も対応しております。どんな状態でも判断せず、丁寧に対応いたします。まずはご相談ください。</div></div>
+      <div class="faq-item"><div class="faq-q">1点だけでも回収してもらえますか？</div><div class="faq-a">はい、1点からでも対応可能です。大型家具・家電の単品回収もお気軽にご相談ください。</div></div>
+      <div class="faq-item"><div class="faq-q">近隣への配慮（騒音・トラックの駐車）はしてもらえますか？</div><div class="faq-a">はい、作業前のご挨拶、静かな搬出作業、トラックの適切な駐車など、近隣への配慮を徹底しております。</div></div>
+      <div class="faq-item"><div class="faq-q">女性スタッフだけで来てもらえますか？</div><div class="faq-a">はい、女性スタッフ在籍のため対応可能です。一人暮らしの女性の方もご安心ください。事前にお申し付けください。</div></div>
+
+      <p class="tag" style="margin-bottom:20px; margin-top:28px;">遺品整理・買取</p>
+      <div class="faq-item"><div class="faq-q">遺品整理はいつ頃始めるのがいいですか？</div><div class="faq-a">四十九日法要後が一般的ですが、相続手続きや物件退去の期限に合わせて柔軟に対応いたします。時期に迷っている方もお気軽にご相談ください。</div></div>
       <div class="faq-item"><div class="faq-q">遺品整理の場合、貴重品はどうなりますか？</div><div class="faq-a">現金・通帳・印鑑・重要書類などはすべてお客様にご確認いただきます。大切なお品を誤って処分することはありません。</div></div>
+      <div class="faq-item"><div class="faq-q">どんなものが買取対象になりますか？</div><div class="faq-a">家具・家電・ブランド品・貴金属・骨董品・楽器・カメラ・ゲーム・フィギュアなど幅広く対応。壊れていても査定可能な場合があります。</div></div>
+      <div class="faq-item"><div class="faq-q">買取だけの依頼も可能ですか？</div><div class="faq-a">はい、出張買取のみのご依頼も承ります。出張費・査定費は無料です。</div></div>
+      <div class="faq-item"><div class="faq-q">出張買取とはどんなサービスですか？</div><div class="faq-a">スタッフがご自宅まで出張して査定・買取を行うサービスです。出張費・査定費は無料です。重い荷物を運ぶ必要がありません。</div></div>
+
+      <p class="tag" style="margin-bottom:20px; margin-top:28px;">その他</p>
+      <div class="faq-item"><div class="faq-q">回収した不用品はどのように処分されますか？</div><div class="faq-a">リサイクル可能なものは買取・再販、それ以外は許可業者と連携して適正処理しております。不法投棄は一切行いません。</div></div>
+      <div class="faq-item"><div class="faq-q">法人・不動産会社からの依頼も受けていますか？</div><div class="faq-a">はい、不動産会社・管理会社・法人のお客様からのご依頼も歓迎いたします。残置物撤去・原状回復清掃もまとめてご相談ください。</div></div>
     </div>
   </div>
 </section>
@@ -713,6 +832,17 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  function toggleMobileMenu() {
+    const overlay = document.getElementById('mobileMenuOverlay');
+    const btn = document.getElementById('navHamburger');
+    const isOpen = overlay.classList.toggle('open');
+    btn.textContent = isOpen ? '✕' : '☰';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+  document.getElementById('mobileMenuOverlay').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileMenu();
+  });
 </script>
 </body>
 </html>
