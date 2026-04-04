@@ -313,13 +313,25 @@ footer p { margin-bottom: 6px; }
   .section-title { font-size: 1.35rem; line-height: 1.5; margin-bottom: 10px; }
   .section-sub { font-size: 0.88rem; margin-bottom: 30px; }
 
-  /* ヘッダー */
-  .header-inner { padding: 10px 12px; gap: 8px; }
-  .header-logo { font-size: 0.9rem; gap: 7px; }
-  .header-logo img { height: 32px !important; }
-  .header-tel small { display: none; }
-  .header-tel a { font-size: 1rem; letter-spacing: 0; }
-  .header-tel a::before { content: "📞"; font-size: 0.9rem; }
+  /* ヘッダー：スマホ2行レイアウト */
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 12px;
+    gap: 3px;
+  }
+  .header-logo { font-size: 0.88rem; gap: 7px; white-space: nowrap; }
+  .header-logo img { height: 28px !important; }
+  .header-tel {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+  .header-tel small { display: block !important; font-size: 0.7rem; color: #9ab; white-space: nowrap; }
+  .header-tel a { font-size: 1.1rem; letter-spacing: 0.02em; }
+  .header-tel a::before { content: "📞 "; font-size: 0.9rem; }
 
   /* サービスカード：1列 */
   .services-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -399,7 +411,7 @@ footer p { margin-bottom: 6px; }
   .hero-line-btn { padding: 14px 16px; font-size: 0.95rem; }
 
   /* パンくず */
-  .breadcrumb { font-size: 0.78rem; padding: 10px 14px; margin-top: 56px; }
+  .breadcrumb { font-size: 0.78rem; padding: 10px 14px; margin-top: 78px; }
 
   /* btn-primary */
   .btn-primary { font-size: 1rem; padding: 15px 24px; width: 100%; text-align: center; display: block; }
