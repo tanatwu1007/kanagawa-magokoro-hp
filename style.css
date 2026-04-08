@@ -680,3 +680,8 @@ footer p { margin-bottom: 6px; }
   .article-body h2 { font-size: 1.1rem; }
   .related-list { grid-template-columns: 1fr; }
 }
+
+/* ===== Instagram ===== */
+.btn-instagram { display:inline-block; background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; font-weight:700; font-size:0.95rem; padding:14px 28px; border-radius:50px; text-decoration:none; transition:opacity .2s; }
+.btn-instagram:hover { opacity:.85; }
+.mm-cta-instagram { display:block; margin:8px 16px 0; padding:14px; background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; font-weight:700; font-size:1rem; border-radius:10px; text-align:center; text-decoration:none; }
