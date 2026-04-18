@@ -685,3 +685,46 @@ footer p { margin-bottom: 6px; }
 .btn-instagram { display:inline-block; background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; font-weight:700; font-size:0.95rem; padding:14px 28px; border-radius:50px; text-decoration:none; transition:opacity .2s; }
 .btn-instagram:hover { opacity:.85; }
 .mm-cta-instagram { display:block; margin:8px 16px 0; padding:14px; background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; font-weight:700; font-size:1rem; border-radius:10px; text-align:center; text-decoration:none; }
+
+/* ===== お客様の声（拡張版） ===== */
+.voices-grid-v2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.voice-card-v2 { background: #fff; border-radius: 16px; padding: 28px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); border-bottom: 4px solid var(--beige2); display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+.voice-card-v2:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(0,0,0,0.12); }
+.voice-stars-v2 { color: #fbbf24; font-size: 1.25rem; margin-bottom: 10px; letter-spacing: 3px; }
+.voice-headline { font-size: 1.05rem; font-weight: 900; color: var(--navy); line-height: 1.5; margin-bottom: 12px; }
+.voice-body { font-size: 1rem; color: #444; line-height: 1.9; margin-bottom: 18px; flex: 1; }
+.voice-meta { border-top: 1px solid #eee; padding-top: 14px; margin-top: auto; }
+.voice-customer { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.voice-detail { font-size: 0.82rem; color: var(--gray); line-height: 1.6; }
+.voice-usedate { font-size: 0.78rem; color: var(--gray); margin-top: 5px; }
+.voices-more-link { text-align: right; margin-top: 24px; }
+.voices-more-link a { color: var(--navy); font-weight: 700; font-size: 0.95rem; text-decoration: none; border-bottom: 2px solid var(--beige2); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+.voices-more-link a:hover { color: var(--orange); border-color: var(--orange); }
+.voices-permission { text-align: center; color: var(--gray); font-size: 0.8rem; margin-top: 16px; }
+
+/* フィルターバー（/voice/ページ用） */
+.voice-filter-section { background: var(--beige); border-radius: 16px; padding: 24px 28px; margin-bottom: 36px; }
+.voice-filter-group { margin-bottom: 16px; }
+.voice-filter-group:last-child { margin-bottom: 0; }
+.voice-filter-label { font-size: 0.82rem; font-weight: 700; color: var(--gray); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.voice-filter-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.voice-filter-btn { background: #fff; border: 2px solid #d8e2ed; color: #555; font-size: 0.82rem; font-weight: 700; padding: 7px 16px; border-radius: 20px; cursor: pointer; transition: all 0.18s; line-height: 1; }
+.voice-filter-btn:hover { border-color: var(--navy); color: var(--navy); }
+.voice-filter-btn.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+.voice-filter-result { font-size: 0.85rem; color: var(--gray); margin-bottom: 20px; }
+.voice-card-v2.hidden { display: none; }
+
+/* 声ページ下部CTA */
+.voice-bottom-cta { background: linear-gradient(135deg, var(--navy) 0%, #2a5298 100%); color: #fff; border-radius: 20px; padding: 52px 32px; text-align: center; margin-top: 60px; }
+.voice-bottom-cta h3 { font-size: 1.5rem; font-weight: 900; margin-bottom: 12px; line-height: 1.4; }
+.voice-bottom-cta p { font-size: 0.98rem; color: rgba(255,255,255,0.85); margin-bottom: 28px; line-height: 1.8; }
+
+@media (max-width: 960px) { .voices-grid-v2 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) {
+  .voices-grid-v2 { grid-template-columns: 1fr; }
+  .voice-card-v2 { padding: 22px 18px; }
+  .voice-body { font-size: 0.97rem; }
+  .voice-filter-section { padding: 18px 16px; }
+  .voice-bottom-cta { padding: 36px 20px; }
+  .voice-bottom-cta h3 { font-size: 1.2rem; }
+}
