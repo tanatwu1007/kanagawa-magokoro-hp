@@ -29,11 +29,6 @@
     "areaServed": {"@type": "State", "name": "神奈川県"},
     "openingHours": "Mo-Su 08:00-20:00",
     "priceRange": "¥9,800〜",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "127"
-    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "サービス一覧",
@@ -80,56 +75,63 @@
     /* トップページ専用スタイル */
     #hero {
       margin-top: 108px;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #1a5c3a 100%);
+      background: linear-gradient(135deg, #9B1C1C 0%, #6b1a4a 45%, #1E3A5F 100%);
       padding: 70px 20px 80px;
       color: #fff;
       position: relative;
       overflow: hidden;
     }
-    #hero::before { content: ''; position: absolute; top: -50px; right: -50px; width: 400px; height: 400px; background: rgba(255,255,255,0.04); border-radius: 50%; }
-    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-    .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-    .hero-badge { background: var(--orange); color: #fff; font-size: 0.78rem; font-weight: 700; padding: 5px 14px; border-radius: 20px; }
-    .hero-catch { font-size: 2rem; font-weight: 900; line-height: 1.4; margin-bottom: 16px; }
-    .hero-catch em { font-style: normal; color: var(--orange-light); font-size: 2.4rem; }
-    .hero-desc { font-size: 1rem; color: #d0dde8; margin-bottom: 30px; line-height: 1.8; }
-    .hero-cta-top { display: flex; flex-direction: column; gap: 14px; }
-    .hero-tel-btn { display: flex; align-items: center; gap: 12px; background: #fff; color: var(--navy); border-radius: 10px; padding: 16px 24px; font-weight: 900; }
-    .hero-tel-btn .tel-num { font-size: 1.6rem; letter-spacing: 0.05em; color: var(--navy); }
-    .hero-tel-btn .tel-label { font-size: 0.78rem; color: var(--gray); }
-    .hero-line-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: #06c755; color: #fff; border-radius: 10px; padding: 14px 24px; font-weight: 700; font-size: 1rem; transition: background 0.2s; }
-    .hero-line-btn:hover { background: #05b04c; }
-    .hero-visual { background: rgba(255,255,255,0.08); border-radius: 16px; padding: 30px; border: 1px solid rgba(255,255,255,0.15); }
-    .hero-points { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-    .hero-points li { display: flex; align-items: flex-start; gap: 12px; font-size: 1rem; color: #fff; }
-    .hero-points .icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
-    .hero-points strong { display: block; font-weight: 700; }
-    .hero-points span.sub { font-size: 0.85rem; color: #b0c8d8; }
-    @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-visual { display: none; }
-      .hero-catch { font-size: 1.5rem; }
-      .hero-catch em { font-size: 1.8rem; }
-    }
+    #hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 420px; height: 420px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+    #hero::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 280px; height: 280px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 3fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
+    .hero-left { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .hero-logo { height: 44px; width: auto; filter: drop-shadow(0 0 8px rgba(255,255,255,0.5)); }
+    .hero-rep-photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; border: 4px solid rgba(255,255,255,0.55); box-shadow: 0 8px 32px rgba(0,0,0,0.35); }
+    .hero-rep-name { font-size: 0.82rem; color: rgba(255,255,255,0.75); line-height: 1.7; letter-spacing: 0.05em; }
+    .hero-rep-name strong { display: block; font-size: 1.05rem; font-weight: 900; color: #fff; letter-spacing: 0.08em; }
+    .hero-catch { font-size: 2.5rem; font-weight: 900; line-height: 1.4; margin-bottom: 20px; letter-spacing: 0.04em; }
+    .hero-desc { font-size: 0.98rem; color: #cdd9e5; margin-bottom: 32px; line-height: 1.95; }
+    .hero-cta-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+    .hero-about-btn { display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.12); color: #fff; border: 2px solid rgba(255,255,255,0.45); border-radius: 10px; padding: 14px 22px; font-weight: 700; font-size: 0.92rem; transition: all 0.2s; text-decoration: none; }
+    .hero-about-btn:hover { background: rgba(255,255,255,0.22); }
+    .hero-contact-btn { display: inline-flex; align-items: center; justify-content: center; background: var(--orange, #e07820); color: #fff; border-radius: 10px; padding: 14px 22px; font-weight: 700; font-size: 0.92rem; transition: background 0.2s; text-decoration: none; }
+    .hero-contact-btn:hover { background: #c0661a; }
+    .hero-tel-small { font-size: 0.84rem; color: rgba(255,255,255,0.65); }
+    .hero-tel-small a { color: rgba(255,255,255,0.9); font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); }
     /* 実績カウンター */
     .ach-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 48px; }
     .ach-item { text-align: center; padding: 8px 4px; min-width: 110px; }
     .ach-num { font-size: 2.2rem; font-weight: 900; color: var(--navy); line-height: 1.1; }
     .ach-num span { font-size: 1rem; }
     .ach-label { font-size: 0.78rem; color: var(--gray); font-weight: 700; margin-top: 4px; }
+    /* 3つのお約束セクション */
+    .promises-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px; }
+    .promise-card { background: #fff; border-radius: 16px; padding: 36px 24px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07); border-top: 4px solid var(--navy); }
+    .promise-icon { width: 56px; height: 56px; margin: 0 auto 18px; color: var(--navy); }
+    .promise-icon svg { width: 56px; height: 56px; }
+    .promise-title { font-size: 1.1rem; font-weight: 900; color: var(--navy); margin-bottom: 12px; }
+    .promise-desc { font-size: 0.88rem; color: #555; line-height: 1.75; }
+    /* InstagramCTAセクション */
+    .insta-cta-box { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); border-radius: 20px; padding: 48px 32px; text-align: center; color: #fff; }
+    .insta-cta-box h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 12px; }
+    .insta-cta-box p { font-size: 0.95rem; color: rgba(255,255,255,0.88); margin-bottom: 28px; line-height: 1.7; }
+    .btn-insta-large { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #833ab4; border-radius: 12px; padding: 16px 36px; font-weight: 900; font-size: 1.05rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+    .btn-insta-large:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+    /* サービスカードSVGアイコン */
+    .service-icon svg { width: 44px; height: 44px; }
 
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+      .hero-catch { font-size: 2rem; }
+      .promises-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
     @media (max-width: 600px) {
       #hero { padding: 44px 16px 56px; margin-top: 78px; }
-      .hero-catch { font-size: 1.55rem; line-height: 1.5; margin-bottom: 14px; }
-      .hero-catch em { font-size: 1.85rem; }
-      .hero-desc { font-size: 0.92rem; line-height: 1.85; }
-      .hero-badge { font-size: 0.82rem; padding: 6px 14px; }
-      /* 電話ボタン：大きく・押しやすく */
-      .hero-tel-btn { padding: 18px 20px; border-radius: 12px; }
-      .hero-tel-btn .tel-num { font-size: 1.75rem; }
-      .hero-tel-btn .tel-label { font-size: 0.82rem; }
-      /* LINEボタン：大きく */
-      .hero-line-btn { padding: 18px 20px; font-size: 1.05rem; border-radius: 12px; }
+      .hero-rep-photo { width: 160px; height: 160px; }
+      .hero-catch { font-size: 1.7rem; line-height: 1.45; margin-bottom: 16px; }
+      .hero-desc { font-size: 0.91rem; line-height: 1.85; }
+      .hero-cta-btns { flex-direction: column; }
+      .hero-about-btn, .hero-contact-btn { text-align: center; padding: 16px 20px; font-size: 0.95rem; }
       /* ヘッダー */
       .header-inner { padding: 10px 14px; }
       .header-logo { font-size: 0.95rem; }
@@ -142,16 +144,14 @@
       .ach-grid { gap: 8px 24px; }
       .ach-num { font-size: 1.8rem; }
       .ach-item { min-width: 90px; }
-      /* ビフォーアフター：2列→1列 */
-      .ba-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
-      /* ギャラリー：複数列→1列 */
-      .gallery-grid-3 { grid-template-columns: 1fr !important; }
-      .gallery-grid-2 { grid-template-columns: 1fr !important; }
       /* 会社概要テーブル */
       #company-table-wrap table { font-size: 0.82rem !important; }
       #company-table-wrap table th,
       #company-table-wrap table td { padding: 10px 10px !important; }
       #company-table-wrap table th { width: 38% !important; }
+      .promises-grid { grid-template-columns: 1fr; }
+      .insta-cta-box { padding: 36px 20px; }
+      .insta-cta-box h3 { font-size: 1.3rem; }
     }
     #greeting .container > div > div:first-child,
     #greeting .container > div > div:last-child { display: block; }
@@ -243,37 +243,19 @@
 <!-- ファーストビュー -->
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-badges">
-        <span class="hero-badge">⚡ 即日対応</span>
-        <span class="hero-badge">👩 女性スタッフ在籍</span>
-        <span class="hero-badge">🔑 鍵預かりOK</span>
-        <span class="hero-badge">💰 買取で費用削減</span>
-        <span class="hero-badge">🚗 出張買取あり</span>
-      </div>
-      <h1 class="hero-catch">神奈川の<em>不用品回収</em>・<em>遺品整理</em>なら<br>まごころ整理センター</h1>
-      <p class="hero-desc">追加料金なし・最短即日対応・買取で費用削減<br>神奈川全域1,200件以上の実績。見積もり後の追加請求は一切ありません。</p>
-      <div class="hero-cta-top">
-        <a href="tel:0120437599" class="hero-tel-btn">
-          <span style="font-size:2rem;">📞</span>
-          <span>
-            <span class="tel-label">通話料無料・年中無休</span>
-            <span class="tel-num">0120-437-599</span>
-          </span>
-        </a>
-        <a href="https://lin.ee/Gf8Or5r" class="hero-line-btn" target="_blank" rel="noopener">💬 LINEで無料相談・お見積もり（写真送信OK）</a>
-        <p style="font-size:0.78rem; color:rgba(255,255,255,0.6); text-align:center; margin-top:-4px;">※しつこい勧誘・営業は一切行っておりません</p>
-      </div>
+    <div class="hero-left">
+      <img src="logo.png" alt="神奈川まごころ整理センター ロゴ" class="hero-logo">
+      <img src="IMG_1828.jpg" alt="代表取締役 粟野匠音" class="hero-rep-photo">
+      <p class="hero-rep-name">代表取締役<strong>粟野 匠音</strong></p>
     </div>
-    <div class="hero-visual">
-      <ul class="hero-points">
-        <li><span class="icon">✅</span><span><strong>神奈川全域に対応</strong><span class="sub">横浜・川崎・相模原・小田原など全エリアOK</span></span></li>
-        <li><span class="icon">✅</span><span><strong>即日〜翌日対応</strong><span class="sub">急なご依頼もお気軽にご相談ください</span></span></li>
-        <li><span class="icon">✅</span><span><strong>女性スタッフ在籍</strong><span class="sub">一人暮らしの方・女性の方も安心</span></span></li>
-        <li><span class="icon">✅</span><span><strong>鍵預かりOK</strong><span class="sub">外出中・不在時でも作業可能</span></span></li>
-        <li><span class="icon">✅</span><span><strong>買取＋出張買取</strong><span class="sub">買取金額を回収費用から差し引き</span></span></li>
-        <li><span class="icon">✅</span><span><strong>追加料金なし</strong><span class="sub">見積もり後の追加請求は一切なし</span></span></li>
-      </ul>
+    <div class="hero-right">
+      <h1 class="hero-catch">神奈川の家族に、<br>まごころを。</h1>
+      <p class="hero-desc">大和市福田に拠点を置く、地元の不用品回収・遺品整理会社です。私たちは、一件一件のお宅に誠実に向き合うことを最大の使命としています。</p>
+      <div class="hero-cta-btns">
+        <a href="#company" class="hero-about-btn">会社について詳しく見る</a>
+        <a href="#contact" class="hero-contact-btn">お問い合わせ</a>
+      </div>
+      <p class="hero-tel-small">お急ぎの方は <a href="tel:0120437599">0120-437-599</a>（年中無休・無料通話）</p>
     </div>
   </div>
 </section>
@@ -283,20 +265,16 @@
   <div class="container">
     <div class="ach-grid">
       <div class="ach-item">
-        <div class="ach-num">1,200<span>件+</span></div>
+        <div class="ach-num">年間<span>300件</span></div>
         <div class="ach-label">累計対応実績</div>
-      </div>
-      <div class="ach-item">
-        <div class="ach-num">★4.8</div>
-        <div class="ach-label">Googleクチコミ評価</div>
-      </div>
-      <div class="ach-item">
-        <div class="ach-num">20<span>市区+</span></div>
-        <div class="ach-label">神奈川県内対応エリア</div>
       </div>
       <div class="ach-item">
         <div class="ach-num">当日<span>〜</span></div>
         <div class="ach-label">最短即日対応</div>
+      </div>
+      <div class="ach-item">
+        <div class="ach-num" style="font-size:1.5rem;">神奈川</div>
+        <div class="ach-label">全域対応</div>
       </div>
     </div>
   </div>
@@ -307,7 +285,7 @@
   <div class="container">
     <div class="trust-badges-grid">
       <div class="trust-badge"><span class="tb-icon">🎓</span>遺品整理士 在籍</div>
-      <div class="trust-badge green"><span class="tb-icon">📋</span>古物商許可 取得済</div>
+      <div class="trust-badge green"><span class="tb-icon">📋</span>古物商許可 申請中</div>
       <div class="trust-badge orange"><span class="tb-icon">🔒</span>秘密厳守・個人情報保護</div>
       <div class="trust-badge"><span class="tb-icon">♻️</span>廃棄物 適正処理</div>
       <div class="trust-badge green"><span class="tb-icon">⚡</span>年中無休・即日対応</div>
@@ -339,7 +317,7 @@
     <div class="services-grid">
       <div class="service-card fade-in">
         <a href="fuyo.html">
-          <div class="service-icon">🚛</div>
+          <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="2"/><circle cx="12" cy="21" r="1"/><circle cx="20" cy="21" r="1"/></svg></div>
           <div class="service-name">不用品回収</div>
           <div class="service-desc">家具・家電・日用品など、お部屋まるごとでもOK。大量の荷物も1回でスッキリ。</div>
           <span class="service-link">詳しく見る →</span>
@@ -347,7 +325,7 @@
       </div>
       <div class="service-card fade-in">
         <a href="zanchi.html">
-          <div class="service-icon">🏚️</div>
+          <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
           <div class="service-name">残置物撤去</div>
           <div class="service-desc">空き家・賃貸退去時の残置物を丸ごと撤去。不動産会社・オーナー様も歓迎。</div>
           <span class="service-link">詳しく見る →</span>
@@ -355,7 +333,7 @@
       </div>
       <div class="service-card fade-in">
         <a href="ihin.html">
-          <div class="service-icon">🕯️</div>
+          <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
           <div class="service-name">遺品整理</div>
           <div class="service-desc">故人様の大切なお品を丁寧に仕分け・整理。経験豊富なスタッフが心を込めて。</div>
           <span class="service-link">詳しく見る →</span>
@@ -363,7 +341,7 @@
       </div>
       <div class="service-card fade-in">
         <a href="kaitori.html">
-          <div class="service-icon">💰</div>
+          <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><path d="M22 10H2"/><path d="M7 15h.01M11 15h2"/></svg></div>
           <div class="service-name">買取サービス</div>
           <div class="service-desc">家具・家電・ブランド品・貴金属など幅広く買取。買取額を回収費用から差し引き。</div>
           <span class="service-link">詳しく見る →</span>
@@ -371,7 +349,7 @@
       </div>
       <div class="service-card fade-in">
         <a href="shuccho.html">
-          <div class="service-icon">🚗</div>
+          <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17H5v-2l2-8h10l2 8v2Z"/><path d="M3 17h1m16 0h1"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg></div>
           <div class="service-name">出張買取</div>
           <div class="service-desc">ご自宅まで無料出張査定。重い荷物を運ばずその場で査定・即日買取します。</div>
           <span class="service-link">詳しく見る →</span>
@@ -379,7 +357,7 @@
       </div>
       <div class="service-card fade-in">
         <a href="cleaning.html">
-          <div class="service-icon">✨</div>
+          <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></div>
           <div class="service-name">ルームクリーニング</div>
           <div class="service-desc">回収後のお部屋を隅々まで清掃。退去清掃・引越し前後のハウスクリーニングも。</div>
           <span class="service-link">詳しく見る →</span>
@@ -389,119 +367,50 @@
   </div>
 </section>
 
-<!-- ビフォーアフター -->
-<section id="beforeafter" class="section" style="background:#fff;">
+<!-- 実際の作業事例 Instagram CTA -->
+<section id="works" class="section" style="background:#fff;">
   <div class="container">
     <p class="tag">施工事例</p>
-    <h2 class="section-title">ビフォーアフター</h2>
-    <p class="section-sub">「本当にこんなにキレイになるの？」実際の作業事例をご覧ください</p>
-    <div class="ba-grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:32px;">
-
-      <!-- 事例1 -->
-      <div class="fade-in" style="background:var(--beige); border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
-        <div style="display:grid; grid-template-columns:1fr 1fr;">
-          <div style="position:relative;">
-            <img src="https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?w=400&auto=format&fit=crop&q=60" alt="不用品回収前の部屋" style="width:100%; height:200px; object-fit:cover;">
-            <span style="position:absolute; top:10px; left:10px; background:#e53935; color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">BEFORE</span>
-          </div>
-          <div style="position:relative;">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&auto=format&fit=crop&q=60" alt="不用品回収後の部屋" style="width:100%; height:200px; object-fit:cover;">
-            <span style="position:absolute; top:10px; left:10px; background:var(--green); color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">AFTER</span>
-          </div>
-        </div>
-        <div style="padding:20px;">
-          <div style="font-size:0.8rem; color:var(--orange); font-weight:700; margin-bottom:6px;">横浜市 / 2LDK 不用品回収</div>
-          <p style="font-size:0.88rem; color:#555; line-height:1.7;">引越しに伴い大量の家具・家電を回収。2tトラック1台分をスタッフ2名で2時間で完了。買取も同時対応で費用を削減しました。</p>
-        </div>
-      </div>
-
-      <!-- 事例2 -->
-      <div class="fade-in" style="background:var(--beige); border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
-        <div style="display:grid; grid-template-columns:1fr 1fr;">
-          <div style="position:relative;">
-            <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&auto=format&fit=crop&q=60" alt="遺品整理前" style="width:100%; height:200px; object-fit:cover;">
-            <span style="position:absolute; top:10px; left:10px; background:#e53935; color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">BEFORE</span>
-          </div>
-          <div style="position:relative;">
-            <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=400&auto=format&fit=crop&q=60" alt="遺品整理後" style="width:100%; height:200px; object-fit:cover;">
-            <span style="position:absolute; top:10px; left:10px; background:var(--green); color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">AFTER</span>
-          </div>
-        </div>
-        <div style="padding:20px;">
-          <div style="font-size:0.8rem; color:var(--orange); font-weight:700; margin-bottom:6px;">川崎市 / 1K 遺品整理＋クリーニング</div>
-          <p style="font-size:0.88rem; color:#555; line-height:1.7;">ご家族から遺品整理のご依頼。丁寧に仕分けを行い、整理後にルームクリーニングも実施。原状回復まで一括対応しました。</p>
-        </div>
-      </div>
-
-      <!-- 事例3 -->
-      <div class="fade-in" style="background:var(--beige); border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
-        <div style="display:grid; grid-template-columns:1fr 1fr;">
-          <div style="position:relative;">
-            <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=400&auto=format&fit=crop&q=60" alt="ゴミ屋敷清掃前" style="width:100%; height:200px; object-fit:cover;">
-            <span style="position:absolute; top:10px; left:10px; background:#e53935; color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">BEFORE</span>
-          </div>
-          <div style="position:relative;">
-            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&auto=format&fit=crop&q=60" alt="ゴミ屋敷清掃後" style="width:100%; height:200px; object-fit:cover;">
-            <span style="position:absolute; top:10px; left:10px; background:var(--green); color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">AFTER</span>
-          </div>
-        </div>
-        <div style="padding:20px;">
-          <div style="font-size:0.8rem; color:var(--orange); font-weight:700; margin-bottom:6px;">相模原市 / 空き家 残置物撤去</div>
-          <p style="font-size:0.88rem; color:#555; line-height:1.7;">相続した空き家の残置物を全撤去。長年放置された大量の荷物も1日で完了。不動産売却前の整理として喜んでいただけました。</p>
-        </div>
-      </div>
-
-      <!-- 事例4 -->
-      <div class="fade-in" style="background:var(--beige); border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
-        <div style="display:grid; grid-template-columns:1fr 1fr;">
-          <div style="position:relative;">
-            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&auto=format&fit=crop&q=60" alt="クリーニング前" style="width:100%; height:200px; object-fit:cover;">
-            <span style="position:absolute; top:10px; left:10px; background:#e53935; color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">BEFORE</span>
-          </div>
-          <div style="position:relative;">
-            <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&auto=format&fit=crop&q=60" alt="クリーニング後" style="width:100%; height:200px; object-fit:cover;">
-            <span style="position:absolute; top:10px; left:10px; background:var(--green); color:#fff; font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;">AFTER</span>
-          </div>
-        </div>
-        <div style="padding:20px;">
-          <div style="font-size:0.8rem; color:var(--orange); font-weight:700; margin-bottom:6px;">藤沢市 / 退去清掃 ルームクリーニング</div>
-          <p style="font-size:0.88rem; color:#555; line-height:1.7;">賃貸退去に伴う原状回復清掃。水回り・床・壁を徹底清掃し、管理会社からも高評価をいただきました。</p>
-        </div>
-      </div>
-
+    <h2 class="section-title">実際の作業事例</h2>
+    <p class="section-sub">リアルな現場の様子をInstagramで公開しています</p>
+    <div class="insta-cta-box fade-in">
+      <h3>📸 ビフォーアフターはInstagramで公開中</h3>
+      <p>実際の作業写真・片付け事例を随時投稿しています。<br>「本当にこんなにキレイになるの？」——ぜひご自身の目で確かめてください。</p>
+      <a href="https://www.instagram.com/kanagawa.magokoro/" target="_blank" rel="noopener" class="btn-insta-large">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Instagramで作業事例を見る
+      </a>
     </div>
-    <p style="text-align:center; color:var(--gray); font-size:0.82rem; margin-top:24px;">※写真は実際の作業事例です。実際のお写真に順次差し替え予定。</p>
   </div>
 </section>
 
-<!-- 作業の様子・スタッフ -->
-<section id="gallery" class="section" style="background:var(--beige);">
+<!-- 3つのお約束 -->
+<section id="promises" class="section" style="background:var(--beige);">
   <div class="container">
-    <p class="tag">作業の様子</p>
-    <h2 class="section-title">スタッフが丁寧にお伺いします</h2>
-    <p class="section-sub">誠実・迅速・丁寧をモットーに神奈川全域で活動しています</p>
-    <div class="gallery-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:16px;">
-      <div class="fade-in" style="border-radius:12px; overflow:hidden; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&auto=format&fit=crop&q=70" alt="スタッフ作業風景" style="width:100%; height:220px; object-fit:cover;">
-        <div style="background:#fff; padding:14px; font-size:0.85rem; font-weight:700; color:var(--navy); text-align:center;">丁寧な作業</div>
+    <p class="tag">私たちの姿勢</p>
+    <h2 class="section-title">3つのお約束</h2>
+    <p class="section-sub">まごころ整理センターがすべてのお客様にお約束すること</p>
+    <div class="promises-grid">
+      <div class="promise-card fade-in">
+        <div class="promise-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="promise-title">誠実対応</div>
+        <div class="promise-desc">追加料金は一切ありません。お見積もり時にすべての費用をご提示し、ご納得いただいてから作業を開始します。</div>
       </div>
-      <div class="fade-in" style="border-radius:12px; overflow:hidden; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&auto=format&fit=crop&q=70" alt="女性スタッフ作業" style="width:100%; height:220px; object-fit:cover;">
-        <div style="background:#fff; padding:14px; font-size:0.85rem; font-weight:700; color:var(--navy); text-align:center;">女性スタッフ在籍</div>
+      <div class="promise-card fade-in">
+        <div class="promise-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="promise-title">迅速対応</div>
+        <div class="promise-desc">最短即日対応。お電話1本でスタートできます。大和市内なら最短30分でお伺いします。急なご依頼もお気軽にどうぞ。</div>
       </div>
-      <div class="fade-in" style="border-radius:12px; overflow:hidden; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
-        <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=500&auto=format&fit=crop&q=70" alt="チームワーク" style="width:100%; height:220px; object-fit:cover;">
-        <div style="background:#fff; padding:14px; font-size:0.85rem; font-weight:700; color:var(--navy); text-align:center;">チームで迅速対応</div>
-      </div>
-    </div>
-    <div class="gallery-grid-2" style="display:grid; grid-template-columns:2fr 1fr; gap:16px;">
-      <div class="fade-in" style="border-radius:12px; overflow:hidden; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
-        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&auto=format&fit=crop&q=70" alt="作業完了後の部屋" style="width:100%; height:200px; object-fit:cover;">
-        <div style="background:#fff; padding:14px; font-size:0.85rem; font-weight:700; color:var(--navy); text-align:center;">作業完了後もスッキリ</div>
-      </div>
-      <div class="fade-in" style="border-radius:12px; overflow:hidden; box-shadow:0 3px 12px rgba(0,0,0,0.1);">
-        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&auto=format&fit=crop&q=70" alt="トラックで神奈川全域に対応" style="width:100%; height:200px; object-fit:cover;">
-        <div style="background:#fff; padding:14px; font-size:0.85rem; font-weight:700; color:var(--navy); text-align:center;">神奈川全域に出張対応</div>
+      <div class="promise-card fade-in">
+        <div class="promise-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </div>
+        <div class="promise-title">丁寧作業</div>
+        <div class="promise-desc">女性スタッフ在籍。お客様のプライバシーと大切なお品を最大限に尊重し、一件一件に心を込めて対応します。</div>
       </div>
     </div>
   </div>
@@ -565,7 +474,7 @@
     <p class="section-sub">神奈川まごころ整理センター 代表より</p>
     <div style="max-width:860px; margin:0 auto; display:grid; grid-template-columns:220px 1fr; gap:40px; align-items:start; background:var(--beige); border-radius:16px; padding:40px;">
       <div style="text-align:center;">
-        <img src="daihyo.jpg" alt="神奈川まごころ整理センター 代表取締役 粟野匠音" style="width:180px; height:180px; border-radius:50%; object-fit:cover; object-position:50% 55%; margin:0 auto 16px; display:block; border:4px solid var(--navy); box-shadow:0 4px 16px rgba(0,0,0,0.15);">
+        <img src="IMG_1828.jpg" alt="神奈川まごころ整理センター 代表取締役 粟野匠音" style="width:180px; height:180px; border-radius:50%; object-fit:cover; object-position:50% 30%; margin:0 auto 16px; display:block; border:4px solid var(--navy); box-shadow:0 4px 16px rgba(0,0,0,0.15);">
         <div style="font-size:0.82rem; color:var(--gray); margin-bottom:4px;">神奈川まごころ整理センター</div>
         <div style="font-size:1.1rem; font-weight:900; color:var(--navy);">代表</div>
         <div style="margin-top:12px; display:flex; flex-direction:column; gap:6px;">
@@ -633,7 +542,7 @@
           </tr>
           <tr>
             <th style="background:var(--navy); color:#fff; padding:16px 24px; text-align:left; font-weight:700;">古物商許可</th>
-            <td style="padding:16px 24px; border-bottom:1px solid #eee;">東京都公安委員会　第301052616733号</td>
+            <td style="padding:16px 24px; border-bottom:1px solid #eee;">神奈川県公安委員会（申請中）</td>
           </tr>
           <tr>
             <th style="background:var(--navy); color:#fff; padding:16px 24px; text-align:left; font-weight:700;">廃棄物処理</th>
@@ -843,13 +752,13 @@
     <p>〒242-0002 神奈川県大和市福田5丁目4-11</p>
     <p>対応エリア：神奈川県全域　｜　TEL：<a href="tel:0120437599" style="color:#ccc;">0120-437-599</a></p>
     <p>不用品回収 / 残置物撤去 / 遺品整理 / 買取 / 出張買取 / ルームクリーニング</p>
-    <p style="margin-top:12px;">古物商許可：東京都公安委員会 第301052616733号</p>
+    <p style="margin-top:12px;">古物商許可：神奈川県公安委員会（申請中）</p>
     <p style="margin-top:16px;">
       <a href="https://www.instagram.com/kanagawa.magokoro/" target="_blank" rel="noopener" style="color:#ccc; text-decoration:none; margin-right:16px;">📸 Instagram</a>
       <a href="https://lin.ee/Gf8Or5r" target="_blank" rel="noopener" style="color:#ccc; text-decoration:none; margin-right:16px;">💬 LINE</a>
       <a href="privacy.html" style="color:#888; text-decoration:underline;">プライバシーポリシー</a>
     </p>
-    <p style="margin-top:10px;">© 2025 神奈川まごころ整理センター All Rights Reserved.</p>
+    <p style="margin-top:10px;">© 2026 神奈川まごころ整理センター All Rights Reserved.</p>
   </div>
 </footer>
 
