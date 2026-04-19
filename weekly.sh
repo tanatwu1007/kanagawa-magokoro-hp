@@ -32,9 +32,12 @@ PROMPT="/Users/itsuki/Desktop/lp-team で以下の作業をすべて自動で行
 【ターゲットキーワード】：${KEYWORD}
 
 作業開始前に必ず以下のファイルを読んでください：
+- index.html の #price セクション（最新の公式料金を確認するため）
 - magokoro-knowledge.md（会社情報・サービス・実績）
 - article-prompt.md（記事生成ルール・HTML構造）
 - review-rubric.md（品質採点ルーブリック）
+
+⚠️ 重要：index.html の料金表を読み込み、まごころ整理センターの料金として記事に記載する金額はすべてindex.htmlの値と完全に一致させること。HPと記事で金額がずれると信頼性が下がるため厳守する。
 
 ════════════════════════════════
 ■ フェーズ1：記事を生成する
@@ -48,6 +51,7 @@ PROMPT="/Users/itsuki/Desktop/lp-team で以下の作業をすべて自動で行
 - 文字数2,000字以上・ですます調
 - ターゲットキーワードを title・h1・h2・メタディスクリプションに必ず含める
 - 料金表（price-table）と比較表または情報ボックスを各1つ以上入れる
+- まごころ整理センターの料金はindex.htmlから読み込んだ最新値のみ使用する（独自の数字を作らない）
 - 関連記事リンク3本（blog/fuyo-cost.html・blog/gomiyashiki.html・blog/ihin-timing.htmlから選ぶ）
 - CTA：電話 0120-437-599 と LINE https://lin.ee/Gf8Or5r を記事中とarticle-ctaブロックに入れる
 - エリアが特定できる記事なら /area/[エリア名].html への内部リンクを入れる
