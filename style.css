@@ -101,7 +101,7 @@ a { text-decoration: none; color: inherit; }
   padding: 10px 20px;
   font-size: 0.8rem;
   color: var(--gray);
-  margin-top: 128px;
+  margin-top: 134px;
 }
 @media (max-width: 900px) {
   .breadcrumb { margin-top: 60px; }
@@ -429,7 +429,7 @@ footer p { margin-bottom: 6px; }
   padding: 0 16px;
   display: flex;
   align-items: stretch;
-  height: 44px;
+  height: 52px;
 }
 .nav-list {
   display: flex;
@@ -445,8 +445,8 @@ footer p { margin-bottom: 6px; }
   align-items: center;
 }
 .nav-list > li > a {
-  padding: 0 12px;
-  font-size: 0.82rem;
+  padding: 0 14px;
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--navy);
   height: 100%;
