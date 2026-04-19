@@ -789,6 +789,29 @@
   document.getElementById('mobileMenuOverlay').addEventListener('click', function(e) {
     if (e.target === this) toggleMobileMenu();
   });
+
+  // ヘッダー・ナビの位置を動的に調整
+  function adjustLayout() {
+    const header = document.getElementById('header');
+    const nav = document.getElementById('main-nav');
+    const hero = document.getElementById('hero');
+    if (!header || !nav || !hero) return;
+
+    const headerH = header.offsetHeight;
+    const navH = nav.offsetHeight;
+
+    // デスクトップ（900px超）のみ適用
+    if (window.innerWidth > 900) {
+      nav.style.top = headerH + 'px';
+      hero.style.marginTop = (headerH + navH) + 'px';
+    } else {
+      nav.style.top = '';
+      hero.style.marginTop = '';
+    }
+  }
+
+  adjustLayout();
+  window.addEventListener('resize', adjustLayout);
 </script>
 </body>
 </html>
