@@ -77,7 +77,7 @@ a { text-decoration: none; color: inherit; }
   top: 0; left: 0; right: 0;
   z-index: 1000;
   background: var(--navy);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.15);
 }
 .header-inner {
   display: flex;
@@ -101,7 +101,7 @@ a { text-decoration: none; color: inherit; }
   padding: 10px 20px;
   font-size: 0.8rem;
   color: var(--gray);
-  margin-top: 134px;
+  margin-top: 138px;
 }
 @media (max-width: 900px) {
   .breadcrumb { margin-top: 60px; }
@@ -416,7 +416,7 @@ footer p { margin-bottom: 6px; }
    ======================================== */
 #main-nav {
   position: fixed;
-  top: 80px;
+  top: 84px;
   left: 0; right: 0;
   z-index: 998;
   background: #fff;
