@@ -75,7 +75,7 @@
     /* トップページ専用スタイル */
     #hero {
       margin-top: 108px;
-      background: linear-gradient(135deg, #9B1C1C 0%, #6b1a4a 45%, #1E3A5F 100%);
+      background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
       padding: 70px 20px 80px;
       color: #fff;
       position: relative;
@@ -86,7 +86,7 @@
     .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 3fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
     .hero-left { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
     .hero-logo { height: 44px; width: auto; filter: drop-shadow(0 0 8px rgba(255,255,255,0.5)); }
-    .hero-rep-photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; border: 4px solid rgba(255,255,255,0.55); box-shadow: 0 8px 32px rgba(0,0,0,0.35); }
+    .hero-rep-photo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; border: 4px solid rgba(255,255,255,0.55); box-shadow: 0 8px 32px rgba(0,0,0,0.35); margin-left: auto; }
     .hero-rep-name { font-size: 0.82rem; color: rgba(255,255,255,0.75); line-height: 1.7; letter-spacing: 0.05em; }
     .hero-rep-name strong { display: block; font-size: 1.05rem; font-weight: 900; color: #fff; letter-spacing: 0.08em; }
     .hero-catch { font-size: 2.5rem; font-weight: 900; line-height: 1.4; margin-bottom: 20px; letter-spacing: 0.04em; }
@@ -127,7 +127,7 @@
     }
     @media (max-width: 600px) {
       #hero { padding: 44px 16px 56px; margin-top: 78px; }
-      .hero-rep-photo { width: 160px; height: 160px; }
+      .hero-rep-photo { width: 130px; height: 130px; margin-left: auto; }
       .hero-catch { font-size: 1.7rem; line-height: 1.45; margin-bottom: 16px; }
       .hero-desc { font-size: 0.91rem; line-height: 1.85; }
       .hero-cta-btns { flex-direction: column; }
@@ -246,12 +246,12 @@
     <div class="hero-left">
       <img src="logo.png" alt="神奈川まごころ整理センター ロゴ" class="hero-logo">
       <img src="IMG_1828.jpg" alt="神奈川まごころ整理センター代表取締役 粟野匠音" class="hero-rep-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-      <div style="display:none;width:200px;height:200px;border-radius:50%;background:var(--navy,#1E3A5F);color:#fff;font-size:2.5rem;font-weight:900;align-items:center;justify-content:center;border:4px solid rgba(255,255,255,0.55);box-shadow:0 8px 32px rgba(0,0,0,0.35);">粟</div>
+      <div style="display:none;width:160px;height:160px;border-radius:50%;background:var(--navy,#1E3A5F);color:#fff;font-size:2rem;font-weight:900;align-items:center;justify-content:center;border:4px solid rgba(255,255,255,0.55);box-shadow:0 8px 32px rgba(0,0,0,0.35);margin-left:auto;">粟</div>
       <p class="hero-rep-name">代表取締役<strong>粟野 匠音</strong></p>
     </div>
     <div class="hero-right">
       <h1 class="hero-catch">神奈川の家族に、<br>まごころを。</h1>
-      <p class="hero-desc">大和市福田に拠点を置く、地元の不用品回収・遺品整理会社です。私たちは、一件一件のお宅に誠実に向き合うことを最大の使命としています。</p>
+      <p class="hero-desc">大和市福田の地元業者として、<br>一件一件のお宅に誠実に向き合います。</p>
       <div class="hero-cta-btns">
         <a href="#company" class="hero-about-btn">会社について詳しく見る</a>
         <a href="#contact" class="hero-contact-btn">お問い合わせ</a>
@@ -270,8 +270,8 @@
         <div class="ach-label">累計対応実績</div>
       </div>
       <div class="ach-item">
-        <div class="ach-num">当日<span>〜</span></div>
-        <div class="ach-label">最短即日対応</div>
+        <div class="ach-num" style="font-size:1.5rem;">最短当日対応</div>
+        <div class="ach-label">即日対応</div>
       </div>
       <div class="ach-item">
         <div class="ach-num" style="font-size:1.5rem;">神奈川</div>
