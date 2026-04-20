@@ -426,10 +426,6 @@ footer p { margin-bottom: 6px; }
    グローバルナビゲーション
    ======================================== */
 #main-nav {
-  position: fixed;
-  top: 84px;
-  left: 0; right: 0;
-  z-index: 998;
   background: #fff;
   border-bottom: 2px solid var(--beige2);
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);

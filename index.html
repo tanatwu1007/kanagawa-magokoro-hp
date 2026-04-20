@@ -177,8 +177,6 @@
     </div>
     <button class="nav-hamburger" id="navHamburger" aria-label="メニューを開く" onclick="toggleMobileMenu()">☰</button>
   </div>
-</header>
-
 <!-- グローバルナビ（デスクトップ） -->
 <nav id="main-nav" aria-label="グローバルナビゲーション">
   <div class="main-nav-inner">
@@ -213,6 +211,7 @@
     </ul>
   </div>
 </nav>
+</header>
 
 <!-- モバイルメニュー -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay">
@@ -793,19 +792,13 @@
   // ヘッダー・ナビの位置を動的に調整
   function adjustLayout() {
     const header = document.getElementById('header');
-    const nav = document.getElementById('main-nav');
     const hero = document.getElementById('hero');
-    if (!header || !nav || !hero) return;
-
-    const headerH = header.offsetHeight;
-    const navH = nav.offsetHeight;
+    if (!header || !hero) return;
 
     // デスクトップ（900px超）のみ適用
     if (window.innerWidth > 900) {
-      nav.style.top = headerH + 'px';
-      hero.style.marginTop = (headerH + navH) + 'px';
+      hero.style.marginTop = header.offsetHeight + 'px';
     } else {
-      nav.style.top = '';
       hero.style.marginTop = '';
     }
   }
