@@ -169,6 +169,12 @@ a { text-decoration: none; color: inherit; }
 }
 .hero-line-btn:hover { background: #05b04c; }
 
+/* ===== サービスページ シンプル電話CTA ===== */
+.hero-tel-simple { margin-top: 24px; text-align: center; }
+.hero-tel-simple small { display: block; font-size: 0.82rem; color: #d0dde8; margin-bottom: 8px; }
+.hero-tel-simple-link { font-size: 2rem; font-weight: 900; color: #fff; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; letter-spacing: 0.02em; }
+.hero-tel-simple-link:hover { color: var(--orange-light); }
+
 /* ===== 不安解消バー ===== */
 #anxiety-bar { background: var(--beige); padding: 20px 0; border-top: 3px solid var(--orange); }
 .anxiety-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px 40px; list-style: none; padding: 0 16px; }
@@ -194,13 +200,15 @@ a { text-decoration: none; color: inherit; }
 .service-link { display: inline-block; margin-top: 12px; font-size: 0.8rem; color: var(--orange); font-weight: 700; }
 
 /* ===== 選ばれる理由 ===== */
-.reasons-grid { display: grid; grid-template-columns: 1fr !important; gap: 16px; }
-@media (min-width: 768px) { .reasons-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 28px; } }
-.reason-card { display: flex; gap: 20px; align-items: flex-start; background: var(--beige); border-radius: 14px; padding: 26px; min-width: 0; }
-@media (max-width: 767px) { .reason-card { grid-column: span 1 !important; } }
-.reason-num { font-size: 2.2rem; font-weight: 900; color: var(--orange); line-height: 1; flex-shrink: 0; }
-.reason-body { min-width: 0; }
-.reason-body h3 { font-size: 1.05rem; font-weight: 900; color: var(--navy); margin-bottom: 8px; word-break: normal; overflow-wrap: break-word; }
+.reasons-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 768px) {
+  .reasons-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .reasons-grid .reason-card:last-child { grid-column: 1 / -1; }
+}
+.reason-card { display: flex; gap: 20px; align-items: flex-start; background: #fef3e7; border-radius: 14px; padding: 26px; min-width: 0; }
+.reason-num { font-size: 2rem; font-weight: 700; color: var(--orange); line-height: 1; flex-shrink: 0; min-width: 44px; }
+.reason-body { flex: 1; min-width: 0; }
+.reason-body h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; word-break: normal; overflow-wrap: break-word; }
 .reason-body p { font-size: 0.88rem; color: var(--gray); line-height: 1.8; word-break: normal; overflow-wrap: break-word; }
 
 /* ===== 流れ ===== */
@@ -292,8 +300,8 @@ footer p { margin-bottom: 6px; }
 /* ===== タブレット（〜900px） ===== */
 @media (max-width: 900px) {
   html { font-size: 16px; }
+  #main-nav { display: none; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .reasons-grid { grid-template-columns: 1fr; }
   .flow-steps { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
   .flow-step:not(:last-child)::after { content: '▼'; position: absolute; right: auto; left: 50%; top: auto; bottom: -18px; transform: translateX(-50%); font-size: 1rem; }
   .flow-step { padding: 20px 10px 34px; }
@@ -338,7 +346,7 @@ footer p { margin-bottom: 6px; }
   .service-desc { font-size: 0.88rem; line-height: 1.75; }
 
   /* 選ばれる理由 */
-  .reasons-grid { grid-template-columns: 1fr; gap: 12px; }
+  .reasons-grid { gap: 12px; }
   .reason-card { padding: 18px 14px; gap: 12px; }
   .reason-num { font-size: 1.6rem; }
   .reason-body h3 { font-size: 1rem; }
@@ -408,7 +416,7 @@ footer p { margin-bottom: 6px; }
   .hero-line-btn { padding: 14px 16px; font-size: 0.95rem; width: 100%; box-sizing: border-box; }
 
   /* パンくず */
-  .breadcrumb { font-size: 0.78rem; padding: 10px 14px; margin-top: 78px; }
+  .breadcrumb { font-size: 0.78rem; padding: 10px 14px; }
 
   /* btn-primary */
   .btn-primary { font-size: 1rem; padding: 15px 24px; width: 100%; text-align: center; display: block; }
