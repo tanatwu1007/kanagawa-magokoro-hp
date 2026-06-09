@@ -114,6 +114,7 @@
     .ach-item { text-align: center; padding: 8px 4px; min-width: 110px; }
     .ach-num { font-size: 2.2rem; font-weight: 900; color: var(--navy); line-height: 1.1; }
     .ach-num span { font-size: 1rem; }
+    .ach-num-sm { font-size: 1.5rem; }
     .ach-label { font-size: 0.78rem; color: var(--gray); font-weight: 700; margin-top: 4px; }
     /* 3つのお約束セクション */
     .promises-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px; }
@@ -128,6 +129,9 @@
     .insta-cta-box p { font-size: 0.95rem; color: rgba(255,255,255,0.88); margin-bottom: 28px; line-height: 1.7; }
     .btn-insta-large { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #833ab4; border-radius: 12px; padding: 16px 36px; font-weight: 900; font-size: 1.05rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
     .btn-insta-large:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+    /* 代表挨拶 */
+    .greeting-grid { max-width:860px; margin:0 auto; display:grid; grid-template-columns:220px 1fr; gap:40px; align-items:start; background:var(--beige); border-radius:16px; padding:40px; }
+    .greeting-text { font-size:1rem; line-height:1.85; color:#444; }
     /* サービスカードSVGアイコン */
     .service-icon svg { width: 44px; height: 44px; }
 
@@ -157,6 +161,7 @@
       /* 実績カウンター */
       .ach-grid { gap: 8px 24px; }
       .ach-num { font-size: 1.8rem; }
+      .ach-num-sm { font-size: 1.3rem; }
       .ach-item { min-width: 90px; }
       /* 会社概要テーブル */
       #company-table-wrap table { font-size: 0.82rem !important; }
@@ -167,11 +172,8 @@
       .insta-cta-box { padding: 36px 20px; }
       .insta-cta-box h3 { font-size: 1.3rem; }
     }
-    #greeting .container > div > div:first-child,
-    #greeting .container > div > div:last-child { display: block; }
     @media (max-width: 700px) {
-      #greeting .container > div { grid-template-columns: 1fr !important; }
-      #greeting .container > div > div:first-child { margin-bottom: 20px; }
+      .greeting-grid { grid-template-columns: 1fr; padding: 24px 20px; gap: 24px; }
     }
   </style>
 </head>
@@ -283,11 +285,11 @@
         <div class="ach-label">累計対応実績</div>
       </div>
       <div class="ach-item">
-        <div class="ach-num" style="font-size:1.5rem;">最短当日対応</div>
+        <div class="ach-num ach-num-sm">最短当日対応</div>
         <div class="ach-label">即日対応</div>
       </div>
       <div class="ach-item">
-        <div class="ach-num" style="font-size:1.5rem;">神奈川</div>
+        <div class="ach-num ach-num-sm">神奈川</div>
         <div class="ach-label">全域対応</div>
       </div>
     </div>
@@ -523,7 +525,7 @@
       <div class="flow-step"><div class="flow-num">4</div><div class="flow-icon">🚛</div><div class="flow-title">作業・回収</div><div class="flow-desc">丁寧・迅速に作業いたします</div></div>
       <div class="flow-step"><div class="flow-num">5</div><div class="flow-icon">✨</div><div class="flow-title">完了・お支払い</div><div class="flow-desc">作業完了後にお支払い。追加なし</div></div>
     </div>
-    <div style="text-align:center; margin-top:50px;">
+    <div style="text-align:center; margin-top:32px;">
       <a href="tel:0120437599" class="btn-primary">📞 今すぐ無料相談する　0120-437-599</a>
     </div>
   </div>
@@ -535,28 +537,28 @@
     <p class="tag">代表挨拶</p>
     <h2 class="section-title">お客様へのメッセージ</h2>
     <p class="section-sub">神奈川まごころ整理センター 代表より</p>
-    <div style="max-width:860px; margin:0 auto; display:grid; grid-template-columns:220px 1fr; gap:40px; align-items:start; background:var(--beige); border-radius:16px; padding:40px;">
+    <div class="greeting-grid">
       <div style="text-align:center;">
         <img src="IMG_1828.jpg" alt="神奈川まごころ整理センター代表取締役 粟野匠音" style="width:180px; height:180px; border-radius:50%; object-fit:cover; object-position:50% 30%; margin:0 auto 16px; display:block; border:4px solid var(--navy); box-shadow:0 4px 16px rgba(0,0,0,0.15);" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
         <div style="display:none;width:180px;height:180px;border-radius:50%;background:var(--navy,#1E3A5F);color:#fff;font-size:2.2rem;font-weight:900;align-items:center;justify-content:center;margin:0 auto 16px;border:4px solid var(--navy);box-shadow:0 4px 16px rgba(0,0,0,0.15);">粟</div>
         <div style="font-size:0.82rem; color:var(--gray); margin-bottom:4px;">神奈川まごころ整理センター</div>
         <div style="font-size:1.1rem; font-weight:900; color:var(--navy);">代表</div>
         <div style="margin-top:12px; display:flex; flex-direction:column; gap:6px;">
-          <span style="background:var(--navy); color:#fff; font-size:0.72rem; padding:4px 10px; border-radius:4px; display:inline-block;">遺品整理士</span>
-          <span style="background:var(--green); color:#fff; font-size:0.72rem; padding:4px 10px; border-radius:4px; display:inline-block;">古物商許可取得</span>
+          <span style="background:var(--navy); color:#fff; font-size:0.75rem; padding:5px 12px; border-radius:4px; display:inline-block;">遺品整理士</span>
+          <span style="background:var(--green); color:#fff; font-size:0.75rem; padding:5px 12px; border-radius:4px; display:inline-block;">古物商許可取得</span>
         </div>
       </div>
       <div>
-        <p style="font-size:1rem; line-height:2; color:#444;">
+        <p class="greeting-text">
           このたびは神奈川まごころ整理センターのホームページをご覧いただき、ありがとうございます。
         </p>
-        <p style="font-size:1rem; line-height:2; color:#444; margin-top:16px;">
+        <p class="greeting-text" style="margin-top:16px;">
           「片付けたいけど、どこに頼めばいいかわからない」「遺品整理を業者に任せて大丈夫だろうか」——そんな不安の声を、たくさんのお客様からいただいてきました。
         </p>
-        <p style="font-size:1rem; line-height:2; color:#444; margin-top:16px;">
+        <p class="greeting-text" style="margin-top:16px;">
           私たちは「まごころ」という社名の通り、一件一件のお宅に誠実に向き合うことを最大の使命としています。特に遺品整理では、故人様への敬意を忘れず、ご遺族の方の気持ちに寄り添いながら丁寧に作業いたします。
         </p>
-        <p style="font-size:1rem; line-height:2; color:#444; margin-top:16px;">
+        <p class="greeting-text" style="margin-top:16px;">
           追加料金なし・明朗会計で、神奈川全域のお客様に安心してご利用いただけるよう、スタッフ一同取り組んでおります。どうぞお気軽にご相談ください。
         </p>
         <p style="font-size:1rem; font-weight:700; color:var(--navy); margin-top:20px; text-align:right;">
