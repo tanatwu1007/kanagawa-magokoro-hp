@@ -14,15 +14,13 @@ export function CaseImage({ igIndex, fallback, alt }: Props) {
   useEffect(() => {
     fetch("/api/instagram/feed")
       .then((r) => (r.ok ? r.json() : []))
-      .then((posts: { media_url: string; thumbnail_url?: string; media_type: string }[]) => {
+      .then((posts: { media_url: string }[]) => {
         const post = posts[igIndex];
-        if (post) {
-          setSrc(
-            post.media_type === "VIDEO" && post.thumbnail_url
-              ? post.thumbnail_url
-              : post.media_url
-          );
-        }
+        if (!post) return;
+        // プリロードして読み込み成功時のみ差し替え
+        const img = new Image();
+        img.onload = () => setSrc(post.media_url);
+        img.src = post.media_url;
       })
       .catch(() => {});
   }, [igIndex]);
@@ -34,6 +32,7 @@ export function CaseImage({ igIndex, fallback, alt }: Props) {
         borderRadius: 12,
         overflow: "hidden",
         marginBottom: 40,
+        background: "var(--beige)",
       }}
     >
       <img

@@ -767,6 +767,10 @@ footer p { margin-bottom: 6px; }
 .case-img-wrap {
   aspect-ratio: 4/3;
   overflow: hidden;
+  background: var(--beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .case-img-wrap img {
   width: 100%;

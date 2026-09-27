@@ -445,6 +445,7 @@
 
     <script>
     // 事例カードの画像をInstagramフィードから自動取得
+    // 読み込み成功した場合のみ差し替え（失敗時はフォールバック画像を維持）
     fetch('/api/instagram/feed')
       .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
       .then(function(posts) {
@@ -452,13 +453,14 @@
         document.querySelectorAll('.case-ig-img').forEach(function(img) {
           var idx = parseInt(img.getAttribute('data-ig-index'), 10);
           if (posts[idx]) {
-            var url = posts[idx].media_type === 'VIDEO' && posts[idx].thumbnail_url
-              ? posts[idx].thumbnail_url : posts[idx].media_url;
-            img.src = url;
+            var url = posts[idx].media_url;
+            var test = new Image();
+            test.onload = function() { img.src = url; };
+            test.src = url;
           }
         });
       })
-      .catch(function() { /* トークン未設定時はフォールバック画像のまま */ });
+      .catch(function() {});
     </script>
 
     <p style="text-align:center; font-size:0.78rem; color:var(--gray); margin-top:20px;">※料金は作業当時のものです。荷物量や作業内容により変動します。</p>
@@ -501,20 +503,26 @@
       if (!posts || posts.length === 0) return;
       var section = document.getElementById('instagram-gallery');
       var grid = document.getElementById('ig-grid');
-      section.style.display = '';
+      var loaded = 0;
       posts.forEach(function(p) {
-        var url = p.media_type === 'VIDEO' && p.thumbnail_url ? p.thumbnail_url : p.media_url;
-        var item = document.createElement('div');
-        item.style.cssText = 'position:relative; aspect-ratio:1; overflow:hidden; border-radius:8px; cursor:pointer;';
-        item.innerHTML = '<img src="' + url + '" alt="' + (p.caption || '作業写真').substring(0, 50).replace(/"/g, '') + '" loading="lazy" style="width:100%; height:100%; object-fit:cover;">';
-        if (p.media_type === 'VIDEO') {
-          item.innerHTML += '<span style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.5);color:#fff;font-size:0.7rem;padding:2px 6px;border-radius:4px;">▶</span>';
-        }
-        item.onclick = function() { openModal(url, p.caption || '', p.permalink); };
-        grid.appendChild(item);
+        var url = p.media_url;
+        var caption = p.caption || '作業写真';
+        var permalink = p.permalink;
+        // 画像のプリロード：読み込めたものだけ表示
+        var test = new Image();
+        test.onload = function() {
+          loaded++;
+          if (loaded === 1) section.style.display = '';
+          var item = document.createElement('div');
+          item.style.cssText = 'position:relative; aspect-ratio:1; overflow:hidden; border-radius:8px; cursor:pointer;';
+          item.innerHTML = '<img src="' + url + '" alt="' + caption.substring(0, 50).replace(/"/g, '') + '" loading="lazy" style="width:100%; height:100%; object-fit:cover;">';
+          item.onclick = function() { openModal(url, caption, permalink); };
+          grid.appendChild(item);
+        };
+        test.src = url;
       });
     })
-    .catch(function() { /* トークン未設定やエラー時は何もしない */ });
+    .catch(function() {});
 
   function openModal(imgUrl, caption, permalink) {
     var modal = document.getElementById('ig-modal');

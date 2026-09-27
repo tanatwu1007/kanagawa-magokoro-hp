@@ -82,18 +82,16 @@ export function CaseFilter({ cases }: { cases: Case[] }) {
   );
 }
 
-function getImageUrl(c: Case, igPosts: IgPost[]): string {
-  const post = igPosts[c.instagramIndex];
-  if (post) {
-    return post.media_type === "VIDEO" && post.thumbnail_url
-      ? post.thumbnail_url
-      : post.media_url;
-  }
-  return c.fallbackImage;
-}
-
 function CaseCard({ c, igPosts }: { c: Case; igPosts: IgPost[] }) {
-  const imgUrl = getImageUrl(c, igPosts);
+  const [imgUrl, setImgUrl] = useState(c.fallbackImage);
+
+  useEffect(() => {
+    const post = igPosts[c.instagramIndex];
+    if (!post) return;
+    const img = new window.Image();
+    img.onload = () => setImgUrl(post.media_url);
+    img.src = post.media_url;
+  }, [igPosts, c.instagramIndex, c.fallbackImage]);
 
   return (
     <Link
