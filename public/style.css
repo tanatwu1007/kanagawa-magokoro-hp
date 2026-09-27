@@ -764,3 +764,11 @@ footer p { margin-bottom: 6px; }
 .case-label-after {
   background: var(--orange);
 }
+
+/* ===== Instagramギャラリー レスポンシブ ===== */
+@media (min-width: 768px) {
+  #ig-grid { grid-template-columns: repeat(4, 1fr) !important; }
+}
+@media (min-width: 1024px) {
+  #ig-grid { grid-template-columns: repeat(6, 1fr) !important; }
+}
