@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import type { Case } from "@/data/cases";
 
@@ -10,27 +10,12 @@ function formatPrice(n: number) {
 
 const services = ["すべて", "不用品回収", "遺品整理", "残置物撤去", "出張買取"] as const;
 
-type IgPost = {
-  media_url: string;
-  thumbnail_url?: string;
-  media_type: string;
-};
-
 export function CaseFilter({ cases }: { cases: Case[] }) {
   const [filter, setFilter] = useState<string>("すべて");
-  const [igPosts, setIgPosts] = useState<IgPost[]>([]);
   const filtered = filter === "すべて" ? cases : cases.filter((c) => c.service === filter);
-
-  useEffect(() => {
-    fetch("/api/instagram/feed")
-      .then((r) => (r.ok ? r.json() : []))
-      .then((posts: IgPost[]) => setIgPosts(posts))
-      .catch(() => {});
-  }, []);
 
   return (
     <>
-      {/* フィルターボタン */}
       <div
         style={{
           display: "flex",
@@ -60,7 +45,6 @@ export function CaseFilter({ cases }: { cases: Case[] }) {
         ))}
       </div>
 
-      {/* カード一覧 */}
       <div
         style={{
           display: "grid",
@@ -69,7 +53,7 @@ export function CaseFilter({ cases }: { cases: Case[] }) {
         }}
       >
         {filtered.map((c) => (
-          <CaseCard key={c.id} c={c} igPosts={igPosts} />
+          <CaseCard key={c.id} c={c} />
         ))}
       </div>
 
@@ -82,17 +66,7 @@ export function CaseFilter({ cases }: { cases: Case[] }) {
   );
 }
 
-function CaseCard({ c, igPosts }: { c: Case; igPosts: IgPost[] }) {
-  const [imgUrl, setImgUrl] = useState(c.fallbackImage);
-
-  useEffect(() => {
-    const post = igPosts[c.instagramIndex];
-    if (!post) return;
-    const img = new window.Image();
-    img.onload = () => setImgUrl(post.media_url);
-    img.src = post.media_url;
-  }, [igPosts, c.instagramIndex, c.fallbackImage]);
-
+function CaseCard({ c }: { c: Case }) {
   return (
     <Link
       href={`/cases/${c.slug}`}
@@ -105,17 +79,15 @@ function CaseCard({ c, igPosts }: { c: Case; igPosts: IgPost[] }) {
         transition: "transform 0.2s, box-shadow 0.2s",
       }}
     >
-      {/* 写真 */}
-      <div style={{ aspectRatio: "4/3", overflow: "hidden" }}>
+      <div style={{ aspectRatio: "4/3", overflow: "hidden", background: "var(--beige)" }}>
         <img
-          src={imgUrl}
+          src={`/api/instagram/image/${c.instagramIndex}`}
           alt={c.title}
           loading="lazy"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </div>
 
-      {/* 情報 */}
       <div style={{ padding: "16px 20px 20px" }}>
         <p
           style={{

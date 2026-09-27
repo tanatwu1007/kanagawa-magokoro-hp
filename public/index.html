@@ -444,23 +444,15 @@
     </div>
 
     <script>
-    // 事例カードの画像をInstagramフィードから自動取得
-    // 読み込み成功した場合のみ差し替え（失敗時はフォールバック画像を維持）
-    fetch('/api/instagram/feed')
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(posts) {
-        if (!posts || posts.length === 0) return;
-        document.querySelectorAll('.case-ig-img').forEach(function(img) {
-          var idx = parseInt(img.getAttribute('data-ig-index'), 10);
-          if (posts[idx]) {
-            var url = posts[idx].media_url;
-            var test = new Image();
-            test.onload = function() { img.src = url; };
-            test.src = url;
-          }
-        });
-      })
-      .catch(function() {});
+    // 事例カードの画像をプロキシAPI経由で取得（Vercelサーバーがキャッシュ）
+    document.querySelectorAll('.case-ig-img').forEach(function(img) {
+      var idx = img.getAttribute('data-ig-index');
+      var proxyUrl = '/api/instagram/image/' + idx;
+      var test = new Image();
+      test.onload = function() { img.src = proxyUrl; };
+      test.onerror = function() {}; // フォールバック画像を維持
+      test.src = proxyUrl;
+    });
     </script>
 
     <p style="text-align:center; font-size:0.78rem; color:var(--gray); margin-top:20px;">※料金は作業当時のものです。荷物量や作業内容により変動します。</p>
@@ -503,23 +495,16 @@
       if (!posts || posts.length === 0) return;
       var section = document.getElementById('instagram-gallery');
       var grid = document.getElementById('ig-grid');
-      var loaded = 0;
-      posts.forEach(function(p) {
-        var url = p.media_url;
+      section.style.display = '';
+      posts.forEach(function(p, i) {
+        var proxyUrl = '/api/instagram/image/' + i;
         var caption = p.caption || '作業写真';
         var permalink = p.permalink;
-        // 画像のプリロード：読み込めたものだけ表示
-        var test = new Image();
-        test.onload = function() {
-          loaded++;
-          if (loaded === 1) section.style.display = '';
-          var item = document.createElement('div');
-          item.style.cssText = 'position:relative; aspect-ratio:1; overflow:hidden; border-radius:8px; cursor:pointer;';
-          item.innerHTML = '<img src="' + url + '" alt="' + caption.substring(0, 50).replace(/"/g, '') + '" loading="lazy" style="width:100%; height:100%; object-fit:cover;">';
-          item.onclick = function() { openModal(url, caption, permalink); };
-          grid.appendChild(item);
-        };
-        test.src = url;
+        var item = document.createElement('div');
+        item.style.cssText = 'position:relative; aspect-ratio:1; overflow:hidden; border-radius:8px; cursor:pointer; background:var(--beige2);';
+        item.innerHTML = '<img src="' + proxyUrl + '" alt="' + caption.substring(0, 50).replace(/"/g, '') + '" loading="lazy" style="width:100%; height:100%; object-fit:cover;">';
+        item.onclick = function() { openModal(proxyUrl, caption, permalink); };
+        grid.appendChild(item);
       });
     })
     .catch(function() {});

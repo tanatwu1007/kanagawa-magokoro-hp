@@ -1,30 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
-type Props = {
-  igIndex: number;
-  fallback: string;
-  alt: string;
-};
-
-export function CaseImage({ igIndex, fallback, alt }: Props) {
-  const [src, setSrc] = useState(fallback);
-
-  useEffect(() => {
-    fetch("/api/instagram/feed")
-      .then((r) => (r.ok ? r.json() : []))
-      .then((posts: { media_url: string }[]) => {
-        const post = posts[igIndex];
-        if (!post) return;
-        // プリロードして読み込み成功時のみ差し替え
-        const img = new Image();
-        img.onload = () => setSrc(post.media_url);
-        img.src = post.media_url;
-      })
-      .catch(() => {});
-  }, [igIndex]);
-
+export function CaseImage({ igIndex, alt }: { igIndex: number; fallback: string; alt: string }) {
   return (
     <div
       style={{
@@ -36,7 +12,7 @@ export function CaseImage({ igIndex, fallback, alt }: Props) {
       }}
     >
       <img
-        src={src}
+        src={`/api/instagram/image/${igIndex}`}
         alt={alt}
         style={{ width: "100%", height: "100%", objectFit: "cover" }}
       />
