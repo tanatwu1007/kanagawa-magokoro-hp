@@ -444,15 +444,27 @@
     </div>
 
     <script>
-    // 事例カードの画像をプロキシAPI経由で取得（Vercelサーバーがキャッシュ）
-    document.querySelectorAll('.case-ig-img').forEach(function(img) {
-      var idx = img.getAttribute('data-ig-index');
-      var proxyUrl = '/api/instagram/image/' + idx;
-      var test = new Image();
-      test.onload = function() { img.src = proxyUrl; };
-      test.onerror = function() {}; // フォールバック画像を維持
-      test.src = proxyUrl;
-    });
+    // Beholdウィジェットからpostデータを取得し、事例カードに画像を反映
+    fetch('https://feeds.behold.so/nBbNqUxj2w7NJqU2HLSj')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function(data) {
+        var posts = data.posts || [];
+        document.querySelectorAll('.case-ig-img').forEach(function(img) {
+          var idx = parseInt(img.getAttribute('data-ig-index'), 10);
+          var post = posts[idx];
+          if (!post) return;
+          // Behold sizes の medium → small → mediaUrl の順に試す
+          var sizes = post.sizes || {};
+          var url = (sizes.medium && sizes.medium.mediaUrl)
+                 || (sizes.small && sizes.small.mediaUrl)
+                 || post.mediaUrl || '';
+          if (!url) return;
+          var test = new Image();
+          test.onload = function() { img.src = url; };
+          test.src = url;
+        });
+      })
+      .catch(function() {});
     </script>
 
     <p style="text-align:center; font-size:0.78rem; color:var(--gray); margin-top:20px;">※料金は作業当時のものです。荷物量や作業内容により変動します。</p>
@@ -463,70 +475,20 @@
   </div>
 </section>
 
-<!-- 現場の様子 Instagram ギャラリー -->
-<section id="instagram-gallery" class="section" style="background:var(--beige); display:none;">
+<!-- 現場の様子 Instagram ギャラリー（Beholdウィジェット） -->
+<section class="section" style="background:var(--beige);">
   <div class="container">
     <p class="tag">現場の様子</p>
     <h2 class="section-title">最新の作業写真</h2>
     <p class="section-sub">Instagramで公開中の現場写真をご覧いただけます</p>
-    <div id="ig-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px;"></div>
-  </div>
-</section>
-
-<!-- Instagram モーダル -->
-<div id="ig-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.85); align-items:center; justify-content:center;">
-  <div style="position:relative; max-width:640px; width:90%; max-height:90vh; background:#fff; border-radius:12px; overflow:hidden;">
-    <button id="ig-modal-close" style="position:absolute; top:12px; right:12px; background:rgba(0,0,0,0.5); color:#fff; border:none; border-radius:50%; width:36px; height:36px; font-size:1.2rem; cursor:pointer; z-index:1;">&times;</button>
-    <img id="ig-modal-img" src="" alt="" style="width:100%; display:block;">
-    <div style="padding:16px 20px;">
-      <p id="ig-modal-caption" style="font-size:0.88rem; color:#444; line-height:1.7; max-height:120px; overflow-y:auto;"></p>
-      <p style="margin-top:12px; text-align:right;"><a id="ig-modal-link" href="" target="_blank" rel="noopener" style="font-size:0.78rem; color:#833ab4;">Instagramで見る →</a></p>
+    <div style="margin:0 auto; max-width:900px;">
+      <behold-widget feed-id="nBbNqUxj2w7NJqU2HLSj"></behold-widget>
+      <script>
+        (function(){var d=document,s=d.createElement("script");s.type="module";s.src="https://w.behold.so/widget.js";d.head.append(s);})();
+      </script>
     </div>
   </div>
-</div>
-
-<script>
-(function() {
-  // Instagram投稿をAPI経由で取得（Next.js APIルート経由）
-  // トークン未設定時はセクション自体を非表示のまま
-  fetch('/api/instagram/feed')
-    .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
-    .then(function(posts) {
-      if (!posts || posts.length === 0) return;
-      var section = document.getElementById('instagram-gallery');
-      var grid = document.getElementById('ig-grid');
-      section.style.display = '';
-      posts.forEach(function(p, i) {
-        var proxyUrl = '/api/instagram/image/' + i;
-        var caption = p.caption || '作業写真';
-        var permalink = p.permalink;
-        var item = document.createElement('div');
-        item.style.cssText = 'position:relative; aspect-ratio:1; overflow:hidden; border-radius:8px; cursor:pointer; background:var(--beige2);';
-        item.innerHTML = '<img src="' + proxyUrl + '" alt="' + caption.substring(0, 50).replace(/"/g, '') + '" loading="lazy" style="width:100%; height:100%; object-fit:cover;">';
-        item.onclick = function() { openModal(proxyUrl, caption, permalink); };
-        grid.appendChild(item);
-      });
-    })
-    .catch(function() {});
-
-  function openModal(imgUrl, caption, permalink) {
-    var modal = document.getElementById('ig-modal');
-    document.getElementById('ig-modal-img').src = imgUrl;
-    document.getElementById('ig-modal-caption').textContent = caption;
-    document.getElementById('ig-modal-link').href = permalink;
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  }
-  document.getElementById('ig-modal-close').onclick = closeModal;
-  document.getElementById('ig-modal').onclick = function(e) {
-    if (e.target === this) closeModal();
-  };
-  function closeModal() {
-    document.getElementById('ig-modal').style.display = 'none';
-    document.body.style.overflow = '';
-  }
-})();
-</script>
+</section>
 
 <!-- お客様からいただいた声 -->
 <section id="voices-top" class="section" style="background:var(--beige);">
