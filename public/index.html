@@ -387,7 +387,7 @@
       <!-- 事例1: 大和市・2LDK・遺品整理 -->
       <a href="/cases/yamato-2ldk-ihin" class="case-card fade-in">
         <div class="case-img-wrap">
-          <img class="case-ig-img" data-ig-index="0" src="/images/cases/case1-before.svg" alt="大和市・2LDK・遺品整理" loading="lazy">
+          <img class="case-ig-img" src="/images/cases/ig-0.jpg" alt="大和市・2LDK・遺品整理" loading="lazy">
         </div>
         <div style="padding:16px 20px 20px;">
           <p style="font-size:0.75rem; color:var(--orange); font-weight:700; margin-bottom:4px;">遺品整理</p>
@@ -406,7 +406,7 @@
       <!-- 事例2: 横浜市・1K・不用品回収 -->
       <a href="/cases/yokohama-1k-fuyo" class="case-card fade-in">
         <div class="case-img-wrap">
-          <img class="case-ig-img" data-ig-index="1" src="/images/cases/case2-before.svg" alt="横浜市・1K・不用品回収" loading="lazy">
+          <img class="case-ig-img" src="/images/cases/ig-1.jpg" alt="横浜市・1K・不用品回収" loading="lazy">
         </div>
         <div style="padding:16px 20px 20px;">
           <p style="font-size:0.75rem; color:var(--orange); font-weight:700; margin-bottom:4px;">不用品回収</p>
@@ -425,7 +425,7 @@
       <!-- 事例3: 川崎市・3LDK・残置物撤去 -->
       <a href="/cases/kawasaki-3ldk-zanchi" class="case-card fade-in">
         <div class="case-img-wrap">
-          <img class="case-ig-img" data-ig-index="2" src="/images/cases/case3-before.svg" alt="川崎市・3LDK・残置物撤去" loading="lazy">
+          <img class="case-ig-img" src="/images/cases/ig-2.jpg" alt="川崎市・3LDK・残置物撤去" loading="lazy">
         </div>
         <div style="padding:16px 20px 20px;">
           <p style="font-size:0.75rem; color:var(--orange); font-weight:700; margin-bottom:4px;">残置物撤去</p>
@@ -443,29 +443,6 @@
 
     </div>
 
-    <script>
-    // Beholdウィジェットからpostデータを取得し、事例カードに画像を反映
-    fetch('https://feeds.behold.so/nBbNqUxj2w7NJqU2HLSj')
-      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function(data) {
-        var posts = data.posts || [];
-        document.querySelectorAll('.case-ig-img').forEach(function(img) {
-          var idx = parseInt(img.getAttribute('data-ig-index'), 10);
-          var post = posts[idx];
-          if (!post) return;
-          // Behold sizes の medium → small → mediaUrl の順に試す
-          var sizes = post.sizes || {};
-          var url = (sizes.medium && sizes.medium.mediaUrl)
-                 || (sizes.small && sizes.small.mediaUrl)
-                 || post.mediaUrl || '';
-          if (!url) return;
-          var test = new Image();
-          test.onload = function() { img.src = url; };
-          test.src = url;
-        });
-      })
-      .catch(function() {});
-    </script>
 
     <p style="text-align:center; font-size:0.78rem; color:var(--gray); margin-top:20px;">※料金は作業当時のものです。荷物量や作業内容により変動します。</p>
 
@@ -475,18 +452,21 @@
   </div>
 </section>
 
-<!-- 現場の様子 Instagram ギャラリー（Beholdウィジェット） -->
+<!-- 現場の様子 Instagram ギャラリー -->
 <section class="section" style="background:var(--beige);">
   <div class="container">
     <p class="tag">現場の様子</p>
     <h2 class="section-title">最新の作業写真</h2>
     <p class="section-sub">Instagramで公開中の現場写真をご覧いただけます</p>
-    <div style="margin:0 auto; max-width:900px;">
-      <behold-widget feed-id="nBbNqUxj2w7NJqU2HLSj"></behold-widget>
-      <script>
-        (function(){var d=document,s=d.createElement("script");s.type="module";s.src="https://w.behold.so/widget.js";d.head.append(s);})();
-      </script>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; max-width:900px; margin:0 auto;">
+      <a href="https://www.instagram.com/p/DZq4N4Qma9n/" target="_blank" rel="noopener" style="aspect-ratio:1; overflow:hidden; border-radius:8px; display:block;"><img src="/images/cases/ig-0.jpg" alt="残置物の問い合わせ" loading="lazy" style="width:100%; height:100%; object-fit:cover;"></a>
+      <a href="https://www.instagram.com/p/DZEPS-AmVjV/" target="_blank" rel="noopener" style="aspect-ratio:1; overflow:hidden; border-radius:8px; display:block;"><img src="/images/cases/ig-1.jpg" alt="事務所のスクラップ買取" loading="lazy" style="width:100%; height:100%; object-fit:cover;"></a>
+      <a href="https://www.instagram.com/p/DYOhFCPGXGO/" target="_blank" rel="noopener" style="aspect-ratio:1; overflow:hidden; border-radius:8px; display:block;"><img src="/images/cases/ig-2.jpg" alt="残置物撤去" loading="lazy" style="width:100%; height:100%; object-fit:cover;"></a>
+      <a href="https://www.instagram.com/p/DYJAhi9GR7W/" target="_blank" rel="noopener" style="aspect-ratio:1; overflow:hidden; border-radius:8px; display:block;"><img src="/images/cases/ig-3.jpg" alt="飲食店の片付け" loading="lazy" style="width:100%; height:100%; object-fit:cover;"></a>
+      <a href="https://www.instagram.com/p/DYI891FGTdf/" target="_blank" rel="noopener" style="aspect-ratio:1; overflow:hidden; border-radius:8px; display:block;"><img src="/images/cases/ig-4.jpg" alt="ソファの買取" loading="lazy" style="width:100%; height:100%; object-fit:cover;"></a>
+      <a href="https://www.instagram.com/p/DXbQZmMmVlo/" target="_blank" rel="noopener" style="aspect-ratio:1; overflow:hidden; border-radius:8px; display:block;"><img src="/images/cases/ig-5.jpg" alt="店舗閉店の不用品回収" loading="lazy" style="width:100%; height:100%; object-fit:cover;"></a>
     </div>
+    <p style="text-align:center; margin-top:20px;"><a href="https://www.instagram.com/kanagawa.magokoro/" target="_blank" rel="noopener" style="display:inline-block; background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; padding:12px 28px; border-radius:10px; font-weight:700; font-size:0.95rem;">Instagramでもっと見る</a></p>
   </div>
 </section>
 

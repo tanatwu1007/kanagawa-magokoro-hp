@@ -12,7 +12,7 @@ export function CaseImage({ igIndex, alt }: { igIndex: number; fallback: string;
       }}
     >
       <img
-        src={`/api/instagram/image/${igIndex}`}
+        src={`/images/cases/ig-${igIndex}.jpg`}
         alt={alt}
         style={{ width: "100%", height: "100%", objectFit: "cover" }}
       />

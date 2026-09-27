@@ -81,7 +81,7 @@ function CaseCard({ c }: { c: Case }) {
     >
       <div style={{ aspectRatio: "4/3", overflow: "hidden", background: "var(--beige)" }}>
         <img
-          src={`/api/instagram/image/${c.instagramIndex}`}
+          src={`/images/cases/ig-${c.instagramIndex}.jpg`}
           alt={c.title}
           loading="lazy"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
