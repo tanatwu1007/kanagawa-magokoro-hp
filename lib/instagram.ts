@@ -1,50 +1,60 @@
 export type InstagramPost = {
   id: string;
   caption?: string;
-  media_type: "IMAGE" | "VIDEO" | "CAROUSEL_ALBUM";
+  media_type?: string;
   media_url: string;
   thumbnail_url?: string;
   permalink: string;
   timestamp: string;
 };
 
+const BEHOLD_FEED_ID = "nBbNqUxj2w7NJqU2HLSj";
+
 /**
- * Instagram Graph API から最新投稿を取得する。
- * 環境変数が未設定・APIエラー時は空配列を返し、ビルドを壊さない。
+ * Behold 経由で Instagram 投稿を取得する。
+ * Behold は既存の Instagram 連携サービスで、認証トークン不要で使える。
+ * API エラー時は空配列を返し、ビルドとページ表示を壊さない。
  */
 export async function fetchInstagramPosts(
   limit = 12
 ): Promise<InstagramPost[]> {
-  const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
-  const userId = process.env.INSTAGRAM_USER_ID;
-
-  if (!accessToken || !userId) {
-    console.log(
-      "[Instagram] INSTAGRAM_ACCESS_TOKEN or INSTAGRAM_USER_ID not set — skipping"
-    );
-    return [];
-  }
-
-  const fields =
-    "id,caption,media_type,media_url,thumbnail_url,permalink,timestamp";
-  const url = `https://graph.instagram.com/${userId}/media?fields=${fields}&limit=${limit}&access_token=${accessToken}`;
-
   try {
-    const res = await fetch(url, { next: { revalidate: 3600 } });
+    const res = await fetch(
+      `https://feeds.behold.so/${BEHOLD_FEED_ID}`,
+      { next: { revalidate: 3600 } }
+    );
     if (!res.ok) {
-      console.error(`[Instagram] API error: ${res.status} ${res.statusText}`);
+      console.error(`[Instagram/Behold] API error: ${res.status}`);
       return [];
     }
     const json = await res.json();
-    return (json.data ?? []) as InstagramPost[];
+    const posts = (json.posts ?? []) as Array<{
+      id: string;
+      prunedCaption?: string;
+      mediaUrl: string;
+      thumbnailUrl?: string;
+      permalink: string;
+      timestamp: string;
+      mediaType?: string;
+    }>;
+
+    return posts.slice(0, limit).map((p) => ({
+      id: p.id,
+      caption: p.prunedCaption,
+      media_type: p.mediaType,
+      media_url: p.mediaUrl,
+      thumbnail_url: p.thumbnailUrl,
+      permalink: p.permalink,
+      timestamp: p.timestamp,
+    }));
   } catch (err) {
-    console.error("[Instagram] fetch failed:", err);
+    console.error("[Instagram/Behold] fetch failed:", err);
     return [];
   }
 }
 
 /**
- * 表示用のURL を返す。動画はサムネイル、カルーセルは1枚目。
+ * 表示用の URL を返す。動画はサムネイル、それ以外は media_url。
  */
 export function getDisplayUrl(post: InstagramPost): string {
   if (post.media_type === "VIDEO" && post.thumbnail_url) {
