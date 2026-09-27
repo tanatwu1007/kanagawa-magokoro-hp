@@ -764,6 +764,19 @@ footer p { margin-bottom: 6px; }
 .case-label-after {
   background: var(--orange);
 }
+.case-img-wrap {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.case-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.case-card:hover .case-img-wrap img {
+  transform: scale(1.05);
+}
 
 /* ===== Instagramギャラリー レスポンシブ ===== */
 @media (min-width: 768px) {

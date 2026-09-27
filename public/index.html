@@ -380,21 +380,14 @@
   <div class="container">
     <p class="tag">施工事例</p>
     <h2 class="section-title">実際の作業事例</h2>
-    <p class="section-sub">料金・作業時間・ビフォーアフターをご覧ください</p>
+    <p class="section-sub">Instagramの作業写真とともに、料金・作業時間をご覧ください</p>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:28px;">
+    <div id="case-cards" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:28px;">
 
       <!-- 事例1: 大和市・2LDK・遺品整理 -->
       <a href="/cases/yamato-2ldk-ihin" class="case-card fade-in">
-        <div style="display:grid; grid-template-columns:1fr 1fr;">
-          <div style="position:relative; aspect-ratio:4/3; overflow:hidden;">
-            <img src="/images/cases/case1-before.svg" alt="大和市・2LDK・遺品整理 Before" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
-            <span class="case-label">Before</span>
-          </div>
-          <div style="position:relative; aspect-ratio:4/3; overflow:hidden;">
-            <img src="/images/cases/case1-after.svg" alt="大和市・2LDK・遺品整理 After" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
-            <span class="case-label case-label-after">After</span>
-          </div>
+        <div class="case-img-wrap">
+          <img class="case-ig-img" data-ig-index="0" src="/images/cases/case1-before.svg" alt="大和市・2LDK・遺品整理" loading="lazy">
         </div>
         <div style="padding:16px 20px 20px;">
           <p style="font-size:0.75rem; color:var(--orange); font-weight:700; margin-bottom:4px;">遺品整理</p>
@@ -412,15 +405,8 @@
 
       <!-- 事例2: 横浜市・1K・不用品回収 -->
       <a href="/cases/yokohama-1k-fuyo" class="case-card fade-in">
-        <div style="display:grid; grid-template-columns:1fr 1fr;">
-          <div style="position:relative; aspect-ratio:4/3; overflow:hidden;">
-            <img src="/images/cases/case2-before.svg" alt="横浜市・1K・不用品回収 Before" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
-            <span class="case-label">Before</span>
-          </div>
-          <div style="position:relative; aspect-ratio:4/3; overflow:hidden;">
-            <img src="/images/cases/case2-after.svg" alt="横浜市・1K・不用品回収 After" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
-            <span class="case-label case-label-after">After</span>
-          </div>
+        <div class="case-img-wrap">
+          <img class="case-ig-img" data-ig-index="1" src="/images/cases/case2-before.svg" alt="横浜市・1K・不用品回収" loading="lazy">
         </div>
         <div style="padding:16px 20px 20px;">
           <p style="font-size:0.75rem; color:var(--orange); font-weight:700; margin-bottom:4px;">不用品回収</p>
@@ -438,15 +424,8 @@
 
       <!-- 事例3: 川崎市・3LDK・残置物撤去 -->
       <a href="/cases/kawasaki-3ldk-zanchi" class="case-card fade-in">
-        <div style="display:grid; grid-template-columns:1fr 1fr;">
-          <div style="position:relative; aspect-ratio:4/3; overflow:hidden;">
-            <img src="/images/cases/case3-before.svg" alt="川崎市・3LDK・残置物撤去 Before" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
-            <span class="case-label">Before</span>
-          </div>
-          <div style="position:relative; aspect-ratio:4/3; overflow:hidden;">
-            <img src="/images/cases/case3-after.svg" alt="川崎市・3LDK・残置物撤去 After" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
-            <span class="case-label case-label-after">After</span>
-          </div>
+        <div class="case-img-wrap">
+          <img class="case-ig-img" data-ig-index="2" src="/images/cases/case3-before.svg" alt="川崎市・3LDK・残置物撤去" loading="lazy">
         </div>
         <div style="padding:16px 20px 20px;">
           <p style="font-size:0.75rem; color:var(--orange); font-weight:700; margin-bottom:4px;">残置物撤去</p>
@@ -463,6 +442,24 @@
       </a>
 
     </div>
+
+    <script>
+    // 事例カードの画像をInstagramフィードから自動取得
+    fetch('/api/instagram/feed')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function(posts) {
+        if (!posts || posts.length === 0) return;
+        document.querySelectorAll('.case-ig-img').forEach(function(img) {
+          var idx = parseInt(img.getAttribute('data-ig-index'), 10);
+          if (posts[idx]) {
+            var url = posts[idx].media_type === 'VIDEO' && posts[idx].thumbnail_url
+              ? posts[idx].thumbnail_url : posts[idx].media_url;
+            img.src = url;
+          }
+        });
+      })
+      .catch(function() { /* トークン未設定時はフォールバック画像のまま */ });
+    </script>
 
     <p style="text-align:center; font-size:0.78rem; color:var(--gray); margin-top:20px;">※料金は作業当時のものです。荷物量や作業内容により変動します。</p>
 

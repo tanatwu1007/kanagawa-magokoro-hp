@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { cases } from "@/data/cases";
+import { CaseImage } from "./case-image";
 import { LINE_URL, TEL_HREF, INSTAGRAM_URL } from "@/lib/constants";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -111,76 +111,12 @@ export default async function CaseDetailPage({ params }: Props) {
             作業日：{c.date}
           </p>
 
-          {/* ビフォー・アフター */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: 12,
-              marginBottom: 40,
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  position: "relative",
-                  aspectRatio: "4/3",
-                  borderRadius: 12,
-                  overflow: "hidden",
-                }}
-              >
-                <Image
-                  src={c.beforeImage}
-                  alt={`${c.title} 作業前`}
-                  fill
-                  style={{ objectFit: "cover" }}
-                  sizes="(max-width: 768px) 50vw, 400px"
-                  priority
-                />
-              </div>
-              <p
-                style={{
-                  textAlign: "center",
-                  fontSize: "0.88rem",
-                  fontWeight: 700,
-                  color: "var(--gray)",
-                  marginTop: 8,
-                }}
-              >
-                Before
-              </p>
-            </div>
-            <div>
-              <div
-                style={{
-                  position: "relative",
-                  aspectRatio: "4/3",
-                  borderRadius: 12,
-                  overflow: "hidden",
-                }}
-              >
-                <Image
-                  src={c.afterImage}
-                  alt={`${c.title} 作業後`}
-                  fill
-                  style={{ objectFit: "cover" }}
-                  sizes="(max-width: 768px) 50vw, 400px"
-                  priority
-                />
-              </div>
-              <p
-                style={{
-                  textAlign: "center",
-                  fontSize: "0.88rem",
-                  fontWeight: 700,
-                  color: "var(--orange)",
-                  marginTop: 8,
-                }}
-              >
-                After
-              </p>
-            </div>
-          </div>
+          {/* 作業写真（Instagramから自動取得） */}
+          <CaseImage
+            igIndex={c.instagramIndex}
+            fallback={c.fallbackImage}
+            alt={`${c.title} 作業写真`}
+          />
 
           {/* 基本情報 */}
           <h2

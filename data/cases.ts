@@ -13,18 +13,25 @@ export type Case = {
   priceTotal: number;
   background: string;
   effort: string;
-  beforeImage: string;
-  afterImage: string;
+  /** Instagram投稿のインデックス（フィードの何番目を使うか。0始まり） */
+  instagramIndex: number;
+  /** Instagram APIが使えない場合のフォールバック画像 */
+  fallbackImage: string;
   date: string;
 };
 
 /**
  * 作業事例データ
- * 実データに差し替える際は、以下の項目を編集してください：
+ *
+ * 画像はInstagram投稿から自動取得されます。
+ * instagramIndex でフィードの何番目の投稿画像を使うかを指定します。
+ * Instagram APIが未設定の場合は fallbackImage が表示されます。
+ *
+ * 実データに差し替える際の編集項目：
  * - title, area, layout, volume, staff, duration
  * - priceWork（作業料金）, priceBuyback（買取額）, priceTotal（支払総額 = 作業料金 - 買取額）
  * - background（依頼の背景）, effort（対応した工夫）
- * - beforeImage / afterImage（写真パス: /images/cases/ 以下に配置）
+ * - instagramIndex（フィードの何番目の投稿を使うか）
  * - date（作業年月: YYYY-MM 形式）
  */
 export const cases: Case[] = [
@@ -45,8 +52,8 @@ export const cases: Case[] = [
       "お父様が亡くなられ、賃貸物件の退去期限が迫っていました。ご家族は遠方にお住まいで、立ち会いが1日しか取れないとのご相談でした。",
     effort:
       "事前にLINEで室内の写真を送っていただき、当日の作業計画を綿密に立てました。貴重品（通帳・印鑑・写真アルバム）は作業前にご家族と一緒に確認。家電・家具の一部は買取でき、費用を抑えることができました。",
-    beforeImage: "/images/cases/case1-before.svg",
-    afterImage: "/images/cases/case1-after.svg",
+    instagramIndex: 0,
+    fallbackImage: "/images/cases/case1-before.svg",
     date: "2026-08",
   },
   {
@@ -66,8 +73,8 @@ export const cases: Case[] = [
       "引越しが3日後に迫り、粗大ゴミの申込みが間に合わなかったとのこと。ベッド・冷蔵庫・洗濯機・棚など一人暮らしの家財一式の回収をご依頼いただきました。",
     effort:
       "当日のお電話で翌日午前に対応。エレベーターなしの3階でしたが、養生をして搬出。冷蔵庫はリサイクル料金を含め、すべて込みの金額でご提示しました。",
-    beforeImage: "/images/cases/case2-before.svg",
-    afterImage: "/images/cases/case2-after.svg",
+    instagramIndex: 1,
+    fallbackImage: "/images/cases/case2-before.svg",
     date: "2026-07",
   },
   {
@@ -87,8 +94,8 @@ export const cases: Case[] = [
       "不動産管理会社様からのご依頼。前入居者が残していった家財一式の撤去で、次の入居者の入居日まで10日間しかありませんでした。",
     effort:
       "現地確認の翌日に作業を実施。大型家具の解体・搬出、家電リサイクル品の適正処理、残った生活ゴミの分別まで対応。ブランド家具と家電の一部を買取し、費用を軽減しました。",
-    beforeImage: "/images/cases/case3-before.svg",
-    afterImage: "/images/cases/case3-after.svg",
+    instagramIndex: 2,
+    fallbackImage: "/images/cases/case3-before.svg",
     date: "2026-09",
   },
 ];

@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import type { Case } from "@/data/cases";
 
 function formatPrice(n: number) {
@@ -11,9 +10,23 @@ function formatPrice(n: number) {
 
 const services = ["すべて", "不用品回収", "遺品整理", "残置物撤去", "出張買取"] as const;
 
+type IgPost = {
+  media_url: string;
+  thumbnail_url?: string;
+  media_type: string;
+};
+
 export function CaseFilter({ cases }: { cases: Case[] }) {
   const [filter, setFilter] = useState<string>("すべて");
+  const [igPosts, setIgPosts] = useState<IgPost[]>([]);
   const filtered = filter === "すべて" ? cases : cases.filter((c) => c.service === filter);
+
+  useEffect(() => {
+    fetch("/api/instagram/feed")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((posts: IgPost[]) => setIgPosts(posts))
+      .catch(() => {});
+  }, []);
 
   return (
     <>
@@ -56,7 +69,7 @@ export function CaseFilter({ cases }: { cases: Case[] }) {
         }}
       >
         {filtered.map((c) => (
-          <CaseCard key={c.id} c={c} />
+          <CaseCard key={c.id} c={c} igPosts={igPosts} />
         ))}
       </div>
 
@@ -69,7 +82,19 @@ export function CaseFilter({ cases }: { cases: Case[] }) {
   );
 }
 
-function CaseCard({ c }: { c: Case }) {
+function getImageUrl(c: Case, igPosts: IgPost[]): string {
+  const post = igPosts[c.instagramIndex];
+  if (post) {
+    return post.media_type === "VIDEO" && post.thumbnail_url
+      ? post.thumbnail_url
+      : post.media_url;
+  }
+  return c.fallbackImage;
+}
+
+function CaseCard({ c, igPosts }: { c: Case; igPosts: IgPost[] }) {
+  const imgUrl = getImageUrl(c, igPosts);
+
   return (
     <Link
       href={`/cases/${c.slug}`}
@@ -82,54 +107,14 @@ function CaseCard({ c }: { c: Case }) {
         transition: "transform 0.2s, box-shadow 0.2s",
       }}
     >
-      {/* ビフォー・アフター写真 */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-        <div style={{ position: "relative", aspectRatio: "4/3" }}>
-          <Image
-            src={c.beforeImage}
-            alt={`${c.title} Before`}
-            fill
-            style={{ objectFit: "cover" }}
-            sizes="(max-width: 768px) 50vw, 200px"
-          />
-          <span
-            style={{
-              position: "absolute",
-              top: 8,
-              left: 8,
-              background: "rgba(0,0,0,0.6)",
-              color: "#fff",
-              fontSize: "0.72rem",
-              padding: "2px 8px",
-              borderRadius: 4,
-            }}
-          >
-            Before
-          </span>
-        </div>
-        <div style={{ position: "relative", aspectRatio: "4/3" }}>
-          <Image
-            src={c.afterImage}
-            alt={`${c.title} After`}
-            fill
-            style={{ objectFit: "cover" }}
-            sizes="(max-width: 768px) 50vw, 200px"
-          />
-          <span
-            style={{
-              position: "absolute",
-              top: 8,
-              left: 8,
-              background: "var(--orange)",
-              color: "#fff",
-              fontSize: "0.72rem",
-              padding: "2px 8px",
-              borderRadius: 4,
-            }}
-          >
-            After
-          </span>
-        </div>
+      {/* 写真 */}
+      <div style={{ aspectRatio: "4/3", overflow: "hidden" }}>
+        <img
+          src={imgUrl}
+          alt={c.title}
+          loading="lazy"
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
       </div>
 
       {/* 情報 */}
