@@ -767,6 +767,7 @@ footer p { margin-bottom: 6px; }
 .case-img-wrap {
   overflow: hidden;
   background: var(--beige);
+  max-height: 220px;
 }
 .case-img-wrap img {
   width: 100%;
