@@ -123,12 +123,6 @@
     .promise-icon svg { width: 56px; height: 56px; }
     .promise-title { font-size: 1.1rem; font-weight: 900; color: var(--navy); margin-bottom: 12px; }
     .promise-desc { font-size: 0.88rem; color: #555; line-height: 1.75; }
-    /* InstagramCTAセクション */
-    .insta-cta-box { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); border-radius: 20px; padding: 48px 32px; text-align: center; color: #fff; }
-    .insta-cta-box h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 12px; }
-    .insta-cta-box p { font-size: 0.95rem; color: rgba(255,255,255,0.88); margin-bottom: 28px; line-height: 1.7; }
-    .btn-insta-large { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #833ab4; border-radius: 12px; padding: 16px 36px; font-weight: 900; font-size: 1.05rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
-    .btn-insta-large:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
     /* 代表挨拶 */
     .greeting-grid { max-width:860px; margin:0 auto; display:grid; grid-template-columns:220px 1fr; gap:40px; align-items:start; background:var(--beige); border-radius:16px; padding:40px; }
     .greeting-text { font-size:1rem; line-height:1.85; color:#444; }
@@ -169,8 +163,6 @@
       #company-table-wrap table td { padding: 10px 10px !important; }
       #company-table-wrap table th { width: 38% !important; }
       .promises-grid { grid-template-columns: 1fr; }
-      .insta-cta-box { padding: 36px 20px; }
-      .insta-cta-box h3 { font-size: 1.3rem; }
     }
     @media (max-width: 700px) {
       .greeting-grid { grid-template-columns: 1fr; padding: 24px 20px; gap: 24px; }
@@ -882,34 +874,8 @@
         <a href="https://lin.ee/tS4Ybnv" class="btn-line" target="_blank" rel="noopener">💬 LINE で無料相談する</a>
         <span class="tel-free" style="display:block;margin-top:10px;">24時間いつでも送信OK・写真でもOK</span>
       </div>
-      <div class="contact-card">
-        <div class="icon">📸</div>
-        <h3>Instagramをフォロー</h3>
-        <p>作業実績・お得情報を毎日更新中<br>フォローしてチェック！</p>
-        <a href="https://www.instagram.com/kanagawa.magokoro/" class="btn-instagram" target="_blank" rel="noopener">📸 Instagramを見る</a>
-        <span class="tel-free" style="display:block;margin-top:10px;">@kanagawa.magokoro</span>
-      </div>
     </div>
     <p style="text-align:center; color:#8aaccf; font-size:0.82rem; margin-top:30px;">※しつこい勧誘・営業は行っておりません。</p>
-  </div>
-</section>
-
-<!-- Instagram フィード -->
-<section class="section" style="background:var(--beige);">
-  <div class="container">
-    <p class="tag">Instagram</p>
-    <h2 class="section-title">作業実績をInstagramで公開中</h2>
-    <p class="section-sub">最新の作業事例・スタッフの声をリアルタイムで更新しています</p>
-    <div id="instagram-feed" style="margin:0 auto; max-width:900px;">
-      <behold-widget feed-id="nBbNqUxj2w7NJqU2HLSj"></behold-widget>
-      <script>
-        (() => {
-          const d=document,s=d.createElement("script");s.type="module";
-          s.src="https://w.behold.so/widget.js";d.head.append(s);
-        })();
-      </script>
-    </div>
-    <p style="text-align:center; margin-top:20px;"><a href="https://www.instagram.com/kanagawa.magokoro/" target="_blank" rel="noopener" class="btn-instagram">📸 Instagramをフォローする</a></p>
   </div>
 </section>
 
